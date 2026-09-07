@@ -1,0 +1,15 @@
+先生時短AI 最終版 GitHub Pages アップロード用
+
+1. このZIPを解凍します。
+2. 解凍したフォルダの「中身」をすべてGitHubリポジトリへアップロードします。
+3. GitHub上で index.html / styles.css / app.js がリポジトリ直下にあることを確認します。
+4. Settings → Pages
+5. Source: Deploy from a branch
+6. Branch: main
+7. Folder: / (root)
+8. Save
+9. 数分後に公開URLを開きます。
+
+新しい専用アカウントでユーザーサイトにする場合:
+ユーザー名が senseijitan なら、リポジトリ名は senseijitan.github.io にしてください。
+公開URLは https://senseijitan.github.io/ になります。

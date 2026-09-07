@@ -1,0 +1,9 @@
+{
+  "name": "先生時短AI",
+  "short_name": "先生時短AI",
+  "description": "小学校教員向け授業準備Webアプリ",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#3d6fe8"
+}
