@@ -216,3 +216,33 @@ button{cursor:pointer}
 .big-visual{display:flex;flex-direction:column;justify-content:center}.visual-focus-board .illust{font-size:2.6rem}
 .visual-board:fullscreen{width:100vw;height:100vh;border-radius:0;padding:28px;font-size:1.35rem}
 @media(max-width:640px){.research-grid{grid-template-columns:1fr}.board-template-tabs{flex-wrap:nowrap;overflow-x:auto}.board-template-tabs button{flex:0 0 auto}}
+
+.board-shortcut{margin-top:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.board-shortcut div{display:flex;flex-direction:column}
+.board-shortcut span{font-size:.82rem;color:var(--muted)}
+.board-shortcut button{border:0;background:#173d31;color:#fff;border-radius:12px;padding:10px 15px;font-weight:900}
+#board{scroll-margin-top:170px}
+#board .visual-board{display:grid!important;visibility:visible!important;opacity:1!important}
+@media(max-width:640px){.board-shortcut{align-items:stretch;flex-direction:column}.board-shortcut button{width:100%}}
+
+/* v7 unit database */
+.db-warning{margin-top:12px;padding:10px 12px;border-radius:12px;background:#fff7dd;font-size:.84rem;line-height:1.55}
+.disabled-card{opacity:.45;cursor:not-allowed;filter:grayscale(.25)}
+.subject-tab.disabled{opacity:.4;cursor:not-allowed}
+.unit-filter-row{display:grid;grid-template-columns:1fr 140px;gap:10px;margin:14px 0}
+.unit-filter-row input,.unit-filter-row select{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;font:inherit}
+.db-unit-card{position:relative;text-align:left;min-height:118px;display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.db-unit-card b{font-size:1rem}
+.term-chip,.review-chip{display:inline-flex;align-items:center;border-radius:999px;padding:4px 8px;font-size:.7rem;font-weight:850}
+.term-chip{background:#eef3ff;color:#3158a7}
+.review-chip{background:#fff3cd;color:#7a5a00}
+.unit-db-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0;padding:14px}
+.unit-db-meta>div{border:1px solid var(--line);border-radius:12px;padding:11px;display:flex;flex-direction:column;gap:5px}
+.unit-db-meta span{line-height:1.55}
+.publisher-meta{grid-column:1/-1}
+.publisher-meta a{font-weight:800;text-decoration:none;color:var(--accent)}
+.empty-db{grid-column:1/-1;padding:30px;text-align:center;color:var(--muted)}
+@media(max-width:640px){
+  .unit-filter-row{grid-template-columns:1fr}
+  .unit-db-meta{grid-template-columns:1fr}
+}

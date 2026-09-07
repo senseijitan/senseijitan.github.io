@@ -1,5 +1,5 @@
 
-const K='senseiJitanAI_v3';
+const K='senseiJitanAI_v7';
 const state=JSON.parse(localStorage.getItem(K)||'null')||{subject:'math',grade:6,unit:'比とその利用',level:'standard',boardTemplate:'flow',favorites:[],recents:[],usage:{},total:0};
 
 if(!state.boardTemplate) state.boardTemplate='flow';
@@ -13,6 +13,55 @@ const subjects={
 };
 
 const grades=[1,2,3,4,5,6];
+
+const subjectDbMap={jp:'国語',math:'算数',science:'理科',social:'社会'};
+function dbSubjectName(key,grade=state.grade){
+  if(key==='english') return grade<=4?'外国語活動':'外国語';
+  return subjectDbMap[key];
+}
+function isSubjectAvailable(key,grade=state.grade){
+  if((key==='science'||key==='social') && grade<3) return false;
+  if(key==='english' && grade<3) return false;
+  return true;
+}
+function subjectUiName(key,grade=state.grade){
+  if(key==='english'){
+    if(grade<=2) return '英語';
+    if(grade<=4) return '外国語活動';
+    return '英語';
+  }
+  return subjects[key].name;
+}
+function unitsFor(grade,key){
+  if(!isSubjectAvailable(key,grade)) return [];
+  const dbName=dbSubjectName(key,grade);
+  return UNIT_DB.filter(u=>u.grade===grade && u.subject===dbName);
+}
+function firstUnitFor(grade,key){
+  const list=unitsFor(grade,key);
+  return list.length?list[0]:null;
+}
+function currentUnitRecord(){
+  const list=unitsFor(state.grade,state.subject);
+  return list.find(u=>u.unit_id===state.unitId) ||
+         list.find(u=>u.canonical_unit_name===state.unit) ||
+         list[0] || null;
+}
+function aliasesForUnit(unitId){
+  return UNIT_ALIASES.filter(a=>a.unit_id===unitId);
+}
+function ensureStateUnit(){
+  if(!isSubjectAvailable(state.subject,state.grade)) state.subject='jp';
+  const rec=currentUnitRecord() || firstUnitFor(state.grade,state.subject);
+  if(rec){
+    state.unitId=rec.unit_id;
+    state.unit=rec.canonical_unit_name;
+  }else{
+    state.unitId=null;
+    state.unit='';
+  }
+}
+
 
 const levels={
   easy:{label:'やさしい',desc:'図・具体例を多めにして、説明を短く、1ステップずつ進めます。'},
@@ -56,6 +105,7 @@ const boardTemplates=[
   {id:'question',name:'問い深掘り型',short:'大きな問い→予想→根拠→再考',best:'国語・社会・理科',desc:'中心発問を板書の中央に置き、児童の意見や根拠を周囲に集める型。'},
   {id:'minimal',name:'シンプル時短型',short:'めあて→要点3つ→まとめ',best:'全教科',desc:'板書量を最小限にして、準備と書く時間を減らす。短時間授業や復習にも向く。'}
 ];
+if(!boardTemplates.some(t=>t.id===state.boardTemplate)) state.boardTemplate='flow';
 
 const demo={
   jp:{
@@ -114,33 +164,41 @@ function renderSubjectTabs(){
       <div class="grade-row">
         <span class="grade-label">学年</span>
         ${grades.map(g=>`<button class="grade-tab ${state.grade===g?'active':''}" data-grade="${g}">${g}年</button>`).join('')}
-        <div class="nav-current"><span>現在</span><b>${state.grade}年・${subjects[state.subject].name}</b></div>
+        <div class="nav-current"><span>現在</span><b>${state.grade}年・${subjectUiName(state.subject)}</b></div>
       </div>
       <div class="subject-tabs">
         ${Object.entries(subjects).map(([k,s])=>`
-          <button class="subject-tab ${s.class} ${state.subject===k?'active':''}" data-top-subject="${k}">
-            ${s.icon} ${s.name}
+          <button class="subject-tab ${s.class} ${state.subject===k?'active':''} ${!isSubjectAvailable(k)?'disabled':''}"
+                  data-top-subject="${k}" ${!isSubjectAvailable(k)?'disabled':''}>
+            ${s.icon} ${subjectUiName(k)}
           </button>`).join('')}
       </div>
     </div>`;
   document.querySelectorAll('[data-grade]').forEach(b=>{
     b.onclick=()=>{
       state.grade=Number(b.dataset.grade);
-      state.unit=subjects[state.subject].units[0];
+      if(!isSubjectAvailable(state.subject,state.grade)) state.subject='jp';
+      const first=firstUnitFor(state.grade,state.subject);
+      state.unitId=first?.unit_id||null;
+      state.unit=first?.canonical_unit_name||'';
       track('grade',`${state.grade}年`);
       mount('subject');
     };
   });
   document.querySelectorAll('[data-top-subject]').forEach(b=>{
     b.onclick=()=>{
+      if(b.disabled) return;
       state.subject=b.dataset.topSubject;
-      state.unit=subjects[state.subject].units[0];
-      track('subject',`${state.grade}年 ${subjects[state.subject].name}`);
+      const first=firstUnitFor(state.grade,state.subject);
+      state.unitId=first?.unit_id||null;
+      state.unit=first?.canonical_unit_name||'';
+      track('subject',`${state.grade}年 ${subjectUiName(state.subject)}`);
       mount('subject');
     };
   });
 }
 function mount(view='home'){
+  ensureStateUnit();
   renderSubjectTabs();
   if(view==='home') renderHome();
   if(view==='subject') renderSubject();
@@ -151,67 +209,138 @@ function mount(view='home'){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function renderHome(){
-  const subjectCards=Object.entries(subjects).map(([k,s])=>`
-    <button class="subject-card ${s.class}" data-subject="${k}">
-      <span class="subject-icon">${s.icon}</span><h3>${s.name}</h3><p>${s.desc}</p>
-    </button>`).join('');
+  const subjectCards=Object.entries(subjects).map(([k,s])=>{
+    const available=isSubjectAvailable(k);
+    const count=unitsFor(state.grade,k).length;
+    return `<button class="subject-card ${s.class} ${available?'':'disabled-card'}" data-subject="${k}" ${available?'':'disabled'}>
+      <span class="subject-icon">${s.icon}</span><h3>${subjectUiName(k)}</h3>
+      <p>${available?s.desc:'この学年では対象外です'}</p>
+      <small>${available?`${count}単元を登録`:'—'}</small>
+    </button>`;
+  }).join('');
   document.querySelector('#app').innerHTML=`
     <section class="hero card">
-      <div><p class="eyebrow">5教科対応ビジュアルMVP</p><h1>今日は何を<br>準備しますか？</h1>
-      <p>教科 → 単元 → レベルを選ぶだけ。授業・板書・ミニテスト・5分活動まで、教科特性に合わせて表示します。</p></div>
+      <div><p class="eyebrow">全学年・5教科 単元DB統合版</p><h1>今日は何を<br>準備しますか？</h1>
+      <p>学年 → 教科 → 単元を選択。現在 <b>${UNIT_DB.length}単元</b> を登録しています。</p>
+      <div class="db-warning">⚠ 現在の単元DBは調査データ取り込み版です。全件「公式確認待ち（needs_review）」として管理しています。</div></div>
       <div class="hero-visual">
-        <div class="visual-chip"><b>🧑‍🏫 板書</b><span>画像イメージ中心</span></div>
-        <div class="visual-chip"><b>📝 テスト</b><span>答え＋生徒向け解説</span></div>
-        <div class="visual-chip"><b>🎮 楽しく</b><span>教科別アクティビティ</span></div>
-        <div class="visual-chip"><b>⭐ マイ化</b><span>お気に入り・履歴</span></div>
+        <div class="visual-chip"><b>📚 ${UNIT_DB.length}単元</b><span>1〜6年を収録</span></div>
+        <div class="visual-chip"><b>🏷 出版社別名</b><span>${UNIT_ALIASES.length}件</span></div>
+        <div class="visual-chip"><b>🧑‍🏫 板書</b><span>5テンプレート</span></div>
+        <div class="visual-chip"><b>📝 テスト</b><span>答え＋解説</span></div>
       </div>
     </section>
-    <section class="section"><div class="section-head"><h2>教科を選ぶ</h2><span class="muted">小学校${state.grade}年のデモ</span></div><div class="subject-grid">${subjectCards}</div></section>
-    <section class="section"><div class="section-head"><h2>よく使う機能</h2></div>
-      <div class="quick-grid">
-        <button class="quick"><span>🧑‍🏫</span><b>板書を見る</b><span>図・挿絵・レベル別</span></button>
-        <button class="quick"><span>📚</span><b>45分授業案</b><span>教科特性に合わせる</span></button>
-        <button class="quick"><span>📝</span><b>ミニテスト</b><span>答え＋わかりやすい解説</span></button>
-        <button class="quick"><span>⏱</span><b>あと5分</b><span>準備ほぼ不要</span></button>
-      </div>
-    </section>
+    <section class="section"><div class="section-head"><h2>教科を選ぶ</h2><span class="muted">小学校${state.grade}年</span></div><div class="subject-grid">${subjectCards}</div></section>
     <section class="section two-col">
       <div class="card panel"><h2>⭐ お気に入り</h2><div class="list">${state.favorites.length?state.favorites.slice(0,5).map(x=>`<div class="list-item">${x}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
       <div class="card panel"><h2>🕘 最近使った</h2><div class="list">${state.recents.length?state.recents.slice(0,5).map(x=>`<div class="list-item">${x.label}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
     </section>`;
-  document.querySelectorAll('[data-subject]').forEach(b=>b.onclick=()=>{state.subject=b.dataset.subject;state.unit=subjects[state.subject].units[0];track('subject',subjects[state.subject].name);mount('subject')});
+  document.querySelectorAll('[data-subject]').forEach(b=>b.onclick=()=>{
+    if(b.disabled) return;
+    state.subject=b.dataset.subject;
+    const first=firstUnitFor(state.grade,state.subject);
+    state.unitId=first?.unit_id||null;
+    state.unit=first?.canonical_unit_name||'';
+    track('subject',subjectUiName(state.subject));
+    mount('subject');
+  });
 }
 function renderSubject(){
   const s=subjects[state.subject];
+  const list=unitsFor(state.grade,state.subject);
+  const displayName=subjectUiName(state.subject);
   document.querySelector('#app').innerHTML=`
   <div class="nav-row">
     <button class="back-btn" data-view="home">← ホームに戻る</button>
-    <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><span>小学校${state.grade}年</span><span>›</span><span>${s.name}</span></div>
+    <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><span>小学校${state.grade}年</span><span>›</span><span>${displayName}</span></div>
   </div>
   <section class="subject-header card">
-    <div><span class="subject-badge ${s.class}">${s.icon} ${s.name}</span><h1>小${state.grade} ${s.name}の授業準備</h1><p>${s.desc}を中心に、${s.focus.join('・')}をまとめます。</p></div>
-    <div class="figure-card"><b>教科別ビジュアル</b><div class="figure">${s.icon}<br>${s.focus.slice(0,3).join('・')}</div></div>
+    <div><span class="subject-badge ${s.class}">${s.icon} ${displayName}</span><h1>小${state.grade} ${displayName}の授業準備</h1>
+    <p>${s.desc}を中心に、${s.focus.join('・')}をまとめます。</p></div>
+    <div class="figure-card"><b>単元DB</b><div class="figure">${list.length}<br><small>登録単元</small></div></div>
   </section>
-  <section class="section"><div class="section-head"><h2>単元を選ぶ</h2><span class="muted">デモ単元</span></div>
-    <div class="unit-grid">${s.units.map((u,i)=>`<button class="unit-card" data-unit="${u}"><b>${u}</b><small>${state.grade===6?(i===0?'完全デモ対応':'UI確認用'):'学年切替UIデモ'}</small></button>`).join('')}</div>
+  <section class="section card panel">
+    <div class="section-head"><div><h2>単元を選ぶ</h2><span class="muted">${list.length}単元・全件公式確認待ち</span></div></div>
+    <div class="unit-filter-row">
+      <input id="unit-search" type="search" placeholder="単元名・キーワードで検索" />
+      <select id="term-filter">
+        <option value="">全学期</option><option value="1">1学期</option><option value="2">2学期</option><option value="3">3学期</option>
+      </select>
+    </div>
+    <div id="unit-db-grid" class="unit-grid">${renderUnitCards(list)}</div>
   </section>
   <section class="section card panel"><h2>この教科で特に強化するもの</h2>
-    <div class="quick-grid">${s.focus.slice(0,4).map(x=>`<div class="quick"><b>${x}</b><span>${s.name}専用の表示・生成に最適化</span></div>`).join('')}</div>
+    <div class="quick-grid">${s.focus.slice(0,4).map(x=>`<div class="quick"><b>${x}</b><span>${displayName}専用の表示・生成に最適化</span></div>`).join('')}</div>
   </section>`;
-  document.querySelectorAll('[data-unit]').forEach(b=>b.onclick=()=>{state.unit=b.dataset.unit;track('unit',`${s.name} ${state.unit}`);mount('unit')});
+  const search=document.querySelector('#unit-search');
+  const term=document.querySelector('#term-filter');
+  const refresh=()=>{
+    const q=(search.value||'').trim().toLowerCase();
+    const t=term.value;
+    const filtered=list.filter(u=>(!t||String(u.term)===t) &&
+      (!q||`${u.canonical_unit_name} ${u.learning_objective} ${u.key_concepts}`.toLowerCase().includes(q)));
+    document.querySelector('#unit-db-grid').innerHTML=renderUnitCards(filtered);
+    wireUnitCards();
+  };
+  search.oninput=refresh; term.onchange=refresh;
+  wireUnitCards();
 }
+function renderUnitCards(list){
+  if(!list.length) return '<div class="empty-db">該当する単元がありません。</div>';
+  return list.map(u=>`<button class="unit-card db-unit-card" data-unit-id="${u.unit_id}">
+    <span class="term-chip">${u.term?`${u.term}学期`:'時期未設定'}</span>
+    <b>${u.canonical_unit_name}</b>
+    <small>${u.key_concepts||''}</small>
+    <span class="review-chip">要公式確認</span>
+  </button>`).join('');
+}
+function wireUnitCards(){
+  document.querySelectorAll('[data-unit-id]').forEach(b=>b.onclick=()=>{
+    const rec=UNIT_DB.find(u=>u.unit_id===b.dataset.unitId);
+    if(!rec) return;
+    state.unitId=rec.unit_id;
+    state.unit=rec.canonical_unit_name;
+    track('unit',`${subjectUiName(state.subject)} ${state.unit}`);
+    mount('unit');
+  });
+}
+
 function levelButtons(){return Object.entries(levels).map(([k,l])=>`<button data-level="${k}" class="${state.level===k?'active':''}">${l.label}</button>`).join('')}
 function renderUnit(){
-  const s=subjects[state.subject], d=demo[state.subject];
+  const s=subjects[state.subject];
+  const rec=currentUnitRecord();
+  const alias=rec?aliasesForUnit(rec.unit_id)[0]:null;
+  const base=demo[state.subject];
+  const d={...base,
+    goal:rec?.learning_objective||base.goal,
+    board:[
+      `めあて：${rec?.learning_objective||base.board[0]}`,
+      base.board[1],
+      base.board[2]
+    ]
+  };
   const lv=levels[state.level];
+  const displayName=subjectUiName(state.subject);
   document.querySelector('#app').innerHTML=`
     <div class="nav-row">
-      <button class="back-btn" data-view="subject">← ${s.name}の単元一覧に戻る</button>
-      <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><button data-view="subject">${s.name}</button><span>›</span><span>${state.unit}</span></div>
+      <button class="back-btn" data-view="subject">← ${displayName}の単元一覧に戻る</button>
+      <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><button data-view="subject">${displayName}</button><span>›</span><span>${state.unit}</span></div>
     </div>
-    <section class="subject-header card"><div><p class="eyebrow">小学校${state.grade}年 ＞ ${s.name}</p><h1>${state.unit}</h1><p>${state.unit===s.units[0]?(state.grade===6?'教科別完全デモ':'UIデモ（単元データは6年を仮表示）'):'UI確認用サンプル。正式版では単元別データを追加します。'}</p></div>
+    <section class="subject-header card"><div><p class="eyebrow">小学校${state.grade}年 ＞ ${displayName}</p><h1>${state.unit}</h1>
+      <p><span class="review-chip">DB登録済・要公式確認</span> ${rec?.term?`${rec.term}学期`:'時期未設定'}</p></div>
       <button id="fav" class="unit-card">☆ お気に入り</button></section>
+    ${rec?`<section class="unit-db-meta card">
+      <div><b>学習目標</b><span>${rec.learning_objective||'未設定'}</span></div>
+      <div><b>キーワード</b><span>${rec.key_concepts||'未設定'}</span></div>
+      <div><b>前の学習</b><span>${rec.previous_learning||'—'}</span></div>
+      <div><b>次の学習</b><span>${rec.next_learning||'—'}</span></div>
+      ${alias?`<div class="publisher-meta"><b>出版社での表記（要確認）</b><span>${alias.publisher}「${alias.publisher_unit_name}」 / ${alias.textbook_name}</span><a href="${alias.source_url}" target="_blank" rel="noopener noreferrer">出版社ページ ↗</a></div>`:''}
+    </section>`:''}
     <section class="level-panel card"><h2>授業レベル</h2><div class="level-buttons">${levelButtons()}</div><p class="muted">${lv.desc}</p></section>
+    <section class="board-shortcut card">
+      <div><b>🧑‍🏫 板書をすぐ見る</b><span>5種類の板書テンプレートから選べます</span></div>
+      <button data-anchor="board">板書を見る</button>
+    </section>
     <section class="unit-layout">
       <aside class="side card">
         <button data-anchor="lesson">📚 授業</button><button data-anchor="board">🧑‍🏫 板書</button><button data-anchor="visual">🖼 図・挿絵</button>
@@ -224,8 +353,8 @@ function renderUnit(){
         <section id="board" class="content card">
           <div class="section-head"><div><h2>🧑‍🏫 板書サンプル</h2><div class="muted">人気の実践板書に共通する構成を分析した「先生時短AI独自板書」です。元画像の転載はしません。</div></div></div>
           <div class="board-template-tabs">${boardTemplates.map(t=>`<button data-board-template="${t.id}" class="${state.boardTemplate===t.id?'active':''}">${t.name}</button>`).join('')}</div>
-          <div class="board-template-note"><b>${boardTemplates.find(t=>t.id===state.boardTemplate).name}</b>：${boardTemplates.find(t=>t.id===state.boardTemplate).desc}</div>
-          ${renderBoardByTemplate(state.boardTemplate,d)}
+          <div class="board-template-note"><b>${currentBoardTemplate().name}</b>：${currentBoardTemplate().desc}</div>
+          ${safeBoardHtml(state.boardTemplate,d)}
           <div class="board-actions">
             <button class="unit-card" data-anchor="research">実践板書の参考元を見る</button>
             <button class="unit-card" id="board-large">板書を大きく見る</button>
@@ -251,7 +380,7 @@ function renderUnit(){
   document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{state.level=b.dataset.level;track('level',`${s.name} ${levels[state.level].label}`);mount('unit')});
   document.querySelectorAll('[data-board-template]').forEach(b=>b.onclick=()=>{
     state.boardTemplate=b.dataset.boardTemplate;
-    track('boardTemplate',boardTemplates.find(t=>t.id===state.boardTemplate).name);
+    track('boardTemplate',currentBoardTemplate().name);
     mount('unit');
   });
   const boardLarge=document.querySelector('#board-large');
@@ -260,7 +389,10 @@ function renderUnit(){
     if(board?.requestFullscreen) board.requestFullscreen();
     else board.scrollIntoView({behavior:'smooth',block:'center'});
   };
-  document.querySelectorAll('[data-anchor]').forEach(b=>b.onclick=()=>document.querySelector('#'+b.dataset.anchor).scrollIntoView({behavior:'smooth',block:'start'}));
+  document.querySelectorAll('[data-anchor]').forEach(b=>b.onclick=()=>{
+    const target=document.querySelector('#'+b.dataset.anchor);
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
   document.querySelector('#fav').onclick=()=>{const lab=`小${state.grade} ${s.name}「${state.unit}」`;if(!state.favorites.includes(lab))state.favorites.unshift(lab);track('favorite',lab);mount('unit')};
   document.querySelector('#regen').onclick=()=>{track('quiz',`${s.name}ミニテスト`);alert('正式版では、教科・単元・レベルに応じてAIが別問題と生徒向け解説を生成します。')};
   btnView();
@@ -270,6 +402,16 @@ function adapt(t){
   if(state.level==='challenge') return t+' ※理由説明・比較・応用まで扱います。';
   if(state.level==='support') return t+' ※短い文・視覚支援・選択式を優先します。';
   return t;
+}
+
+function currentBoardTemplate(){ return boardTemplates.find(t=>t.id===state.boardTemplate) || boardTemplates[0]; }
+
+function safeBoardHtml(type,d){
+  try{
+    return renderBoardByTemplate(type,d);
+  }catch(e){
+    return `<div class="visual-board"><div><h3>めあて</h3><div class="chalk">${adapt(d.board[0])}</div></div><div><h4>考える</h4><div class="chalk">${adapt(d.board[1])}</div></div><div><h4>まとめ</h4><div class="chalk">${adapt(d.board[2])}</div></div></div>`;
+  }
 }
 
 function renderBoardByTemplate(type,d){

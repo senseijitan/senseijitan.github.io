@@ -1,0 +1,218 @@
+﻿alias_id,unit_id,publisher,publisher_unit_name,textbook_name,school_year,source_url,status
+A101,U101,光村図書,あさのおひさま・ひらがな,国語 一上,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A102,U102,光村図書,おおきなかぶ,国語 一上,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A103,U103,光村図書,じどう車くらべ,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A104,U104,光村図書,はなしたいな ききたいな,国語 一上,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A105,U105,光村図書,あったことをかこう,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A106,U106,光村図書,かん字のはなし,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A107,U107,光村図書,かたかなをみつけよう,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A108,U108,光村図書,ことばあそび,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A109,U109,光村図書,おみせやさんごっこ,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A110,U110,光村図書,たぬきの糸車,国語 一下,1,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A111,U111,東京書籍,かずとすうじ,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A112,U112,東京書籍,たしざん(1),新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A113,U113,東京書籍,ひきざん(1),新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A114,U114,東京書籍,ながさくらべ,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A115,U115,東京書籍,かたちあそび,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A116,U116,東京書籍,10よりおおきいかず,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A117,U117,東京書籍,3つのかずのけいさん,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A118,U118,東京書籍,たしざん(2),新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A119,U119,東京書籍,ひきざん(2),新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A120,U120,東京書籍,おおきいかず,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A121,U121,東京書籍,とけい,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A122,U122,東京書籍,かたちづくり,新しい算数 1,1,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A201,U201,光村図書,かん字の広場,国語 二上,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A202,U202,光村図書,ふきのとう / スイミー,国語 二上,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A203,U203,光村図書,たんぽぽのちえ / さけが大きくなるまで,国語 二上,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A204,U204,光村図書,道案内をしよう,国語 二上,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A205,U205,光村図書,おはなしのさくしゃになろう,国語 二下,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A206,U206,光村図書,かんさつ名人になろう,国語 二上,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A207,U207,光村図書,詩をたのしもう,国語 二下,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A208,U208,光村図書,声に出して読もう,国語 二上,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A209,U209,光村図書,はんたいの意味のことば,国語 二下,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A210,U210,光村図書,お手紙 (音読げき),国語 二下,2,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A211,U211,東京書籍,ひょうとグラフ,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A212,U212,東京書籍,たし算のひっ算,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A213,U213,東京書籍,ひき算のひっ算,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A214,U214,東京書籍,長さ,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A215,U215,東京書籍,水のかさ,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A216,U216,東京書籍,かけ算(1),新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A217,U217,東京書籍,かけ算(2),新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A218,U218,東京書籍,1000までの数,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A219,U219,東京書籍,10000までの数,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A220,U220,東京書籍,分数,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A221,U221,東京書籍,はこづくり,新しい算数 2,2,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A301,U301,光村図書,漢字の広場(3年),国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A302,U302,光村図書,国語辞典の引き方,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A303,U303,光村図書,ちいちゃんのかげおくり / モチモチの木,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A304,U304,光村図書,こまを楽しむ / ありの行列,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A305,U305,光村図書,すじ道を立てて話そう,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A306,U306,光村図書,調べたことをほうこくしよう,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A307,U307,光村図書,ローマ字,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A308,U308,光村図書,詩を読もう,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A309,U309,光村図書,ことわざ・慣用句,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A310,U310,光村図書,本を読もう,国語 三,3,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A311,U311,東京書籍,かけ算の筆算(1),新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A312,U312,東京書籍,わり算,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A313,U313,東京書籍,あまりのあるわり算,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A314,U314,東京書籍,たし算とひき算の筆算,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A315,U315,東京書籍,長さと道のり(km),新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A316,U316,東京書籍,重さ(g/kg),新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A317,U317,東京書籍,円と球,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A318,U318,東京書籍,小数,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A319,U319,東京書籍,分数,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A320,U320,東京書籍,棒グラフ,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A321,U321,東京書籍,表とグラフ,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A322,U322,東京書籍,三角形,新しい算数 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A331,U331,啓林館,チョウを育てよう,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A332,U332,啓林館,植物を育てよう,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A333,U333,啓林館,しぜんのかんさつ,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A334,U334,啓林館,太陽と地面の様子,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A335,U335,啓林館,光のせいしつ,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A336,U336,啓林館,音のせいしつ,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A337,U337,啓林館,じしゃくのせいしつ,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A338,U338,啓林館,物の重さ,わくわく理科 3,3,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A341,U341,東京書籍,わたしたちのまちと市,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A342,U342,東京書籍,市の様子と人々のくらし,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A343,U343,東京書籍,店ではたらく人,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A344,U344,東京書籍,工場・農家ではたらく人,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A345,U345,東京書籍,事故や事件からまちを守る,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A346,U346,東京書籍,火事からまちを守る,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A347,U347,東京書籍,市のうつりかわり,新編 新しい社会 3,3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A351,U351,東京書籍,Hello!,Let's Try! 1 (準拠),3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A352,U352,東京書籍,How are you?,Let's Try! 1 (準拠),3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A353,U353,東京書籍,How many?,Let's Try! 1 (準拠),3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A354,U354,東京書籍,I like blue.,Let's Try! 1 (準拠),3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A355,U355,東京書籍,ALPHABET,Let's Try! 1 (準拠),3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A356,U356,東京書籍,What's this?,Let's Try! 1 (準拠),3,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A401,U401,光村図書,漢字の広場(4年),国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A402,U402,光村図書,漢字辞典の引き方,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A403,U403,光村図書,白いぼうし / ごんぎつね,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A404,U404,光村図書,アップとルーズで伝える / ウナギのなぞを追って,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A405,U405,光村図書,対話の練習,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A406,U406,光村図書,新聞を作ろう,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A407,U407,光村図書,百人一首,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A408,U408,光村図書,詩を味わおう,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A409,U409,光村図書,慣用句,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A410,U410,光村図書,アンケートをまとめて書こう,国語 四,4,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A411,U411,東京書籍,わり算の筆算(1),新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A412,U412,東京書籍,わり算の筆算(2),新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A413,U413,東京書籍,角の大きさ,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A414,U414,東京書籍,折れ線グラフ,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A415,U415,東京書籍,面積,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A416,U416,東京書籍,小数のしくみとたし算・ひき算,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A417,U417,東京書籍,小数のかけ算とわり算,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A418,U418,東京書籍,分数,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A419,U419,東京書籍,垂直・平行と四角形,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A420,U420,東京書籍,直方体と立方体,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A421,U421,東京書籍,変わり方,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A422,U422,東京書籍,そろばん,新しい算数 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A431,U431,啓林館,季節と生物,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A432,U432,啓林館,天気のようすと気温,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A433,U433,啓林館,動物のからだのつくりと運動,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A434,U434,啓林館,電池のはたらき,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A435,U435,啓林館,星の明るさと色・月の動き,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A436,U436,啓林館,閉じ込めた空気と水,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A437,U437,啓林館,物のあたたまり方,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A438,U438,啓林館,水のすがたと温度,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A439,U439,啓林館,自然の観察まとめ,わくわく理科 4,4,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A441,U441,東京書籍,わたしたちの県,新編 新しい社会 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A442,U442,東京書籍,水はどこから,新編 新しい社会 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A443,U443,東京書籍,ごみのしょりと利用,新編 新しい社会 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A444,U444,東京書籍,災害にそなえる,新編 新しい社会 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A445,U445,東京書籍,特色ある地域と人々のくらし,新編 新しい社会 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A446,U446,東京書籍,きょう土の伝統・文化,新編 新しい社会 4,4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A451,U451,東京書籍,Let's play cards.,Let's Try! 2 (準拠),4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A452,U452,東京書籍,What time is it?,Let's Try! 2 (準拠),4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A453,U453,東京書籍,Do you have a pen?,Let's Try! 2 (準拠),4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A454,U454,東京書籍,Alphabet (lowercase),Let's Try! 2 (準拠),4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A455,U455,東京書籍,What do you want?,Let's Try! 2 (準拠),4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A456,U456,東京書籍,This is my day.,Let's Try! 2 (準拠),4,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A501,U501,光村図書,漢字の広場(5年),国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A502,U502,光村図書,敬語の使い方,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A503,U503,光村図書,大造じいさんとガン,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A504,U504,光村図書,見立てる / 想像力のスイッチを入れよう,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A505,U505,光村図書,事実と意見を区別して書こう,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A506,U506,光村図書,よりよい学校生活のために (討論),国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A507,U507,光村図書,古典の世界 (竹取物語など),国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A508,U508,光村図書,和語・漢語・外来語 / 引用,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A509,U509,光村図書,詩を味わおう,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A510,U510,光村図書,メディアと関わる,国語 五,5,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A511,U511,東京書籍,整数と小数,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A512,U512,東京書籍,体積,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A513,U513,東京書籍,比例,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A514,U514,東京書籍,小数のかけ算,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A515,U515,東京書籍,小数のわり算,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A516,U516,東京書籍,合同な図形,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A517,U517,東京書籍,偶数と奇数・倍数と約数,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A518,U518,東京書籍,分数のたし算とひき算,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A519,U519,東京書籍,平均,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A520,U520,東京書籍,単位量あたりの大きさ,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A521,U521,東京書籍,割合,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A522,U522,東京書籍,正多角形と円,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A523,U523,東京書籍,帯グラフと円グラフ,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A524,U524,東京書籍,角柱と円柱,新しい算数 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A531,U531,啓林館,天気の変化,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A532,U532,啓林館,植物の発芽と成長,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A533,U533,啓林館,メダカのたんじょう,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A534,U534,啓林館,台風と天気の変化,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A535,U535,啓林館,花から実へ,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A536,U536,啓林館,流れる水のはたらき,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A537,U537,啓林館,ふりこの動き,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A538,U538,啓林館,物のとけ方,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A539,U539,啓林館,電磁石の性質,わくわく理科 5,5,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A541,U541,東京書籍,世界の中の国土,新編 新しい社会 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A542,U542,東京書籍,わたしたちの生活と食料生産,新編 新しい社会 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A543,U543,東京書籍,水産業のさかんな地域,新編 新しい社会 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A544,U544,東京書籍,わたしたちの生活と工業生産,新編 新しい社会 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A545,U545,東京書籍,情報化社会とわたしたちの生活,新編 新しい社会 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A546,U546,東京書籍,環境を守るわたしたち,新編 新しい社会 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A551,U551,東京書籍,"Hello, everyone.",NEW HORIZON Elementary 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A552,U552,東京書籍,When is your birthday?,NEW HORIZON Elementary 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A553,U553,東京書籍,What do you have on Monday?,NEW HORIZON Elementary 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A554,U554,東京書籍,I can run fast.,NEW HORIZON Elementary 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A555,U555,東京書籍,Where is the post office?,NEW HORIZON Elementary 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A556,U556,東京書籍,Who is your hero?,NEW HORIZON Elementary 5,5,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A601,U601,光村図書,漢字の広場(6年),国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A602,U602,光村図書,海の命 / やまなし,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A603,U603,光村図書,鳥獣戯画を読む / プロフェッショナルたち,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A604,U604,光村図書,随筆を通して考えを深める,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A605,U605,光村図書,町の未来をえがこう (提案文),国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A606,U606,光村図書,話し合って考えを深めよう,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A607,U607,光村図書,狂言「柿山伏」,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A608,U608,光村図書,複数の情報を比較する,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A609,U609,光村図書,詩を味わおう,国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A610,U610,光村図書,今、私は、ぼくは (スピーチ),国語 六,6,https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/,needs_review
+A611,U611,東京書籍,対称な図形,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A612,U612,東京書籍,文字と式,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A613,U613,東京書籍,分数のかけ算,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A614,U614,東京書籍,分数のわり算,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A615,U615,東京書籍,比,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A616,U616,東京書籍,拡大図と縮図,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A617,U617,東京書籍,円の面積,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A618,U618,東京書籍,立体の体積,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A619,U619,東京書籍,比例と反比例,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A620,U620,東京書籍,データの活用,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A621,U621,東京書籍,量と単位,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A622,U622,東京書籍,算数のまとめ,新しい算数 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A631,U631,啓林館,燃焼のしくみ,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A632,U632,啓林館,人の体のつくりとはたらき,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A633,U633,啓林館,植物の養分と水,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A634,U634,啓林館,生き物と環境,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A635,U635,啓林館,月と太陽,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A636,U636,啓林館,大地のつくりと変化,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A637,U637,啓林館,水溶液の性質,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A638,U638,啓林館,てこのはたらき,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A639,U639,啓林館,発電と電気の利用,わくわく理科 6,6,https://www.shinko-keirin.co.jp/keirinkan/sho/,needs_review
+A641,U641,東京書籍,日本の政治のしくみ,新編 新しい社会 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A642,U642,東京書籍,国の政治の働き,新編 新しい社会 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A643,U643,東京書籍,長く続いた戦争と人々のくらし(歴史1),新編 新しい社会 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A644,U644,東京書籍,天下統一と江戸幕府(歴史2),新編 新しい社会 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A645,U645,東京書籍,明治の国づくりと現代(歴史3),新編 新しい社会 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A646,U646,東京書籍,世界の中の日本,新編 新しい社会 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A651,U651,東京書籍,This is me.,NEW HORIZON Elementary 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A652,U652,東京書籍,My Daily Life.,NEW HORIZON Elementary 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A653,U653,東京書籍,My Summer Vacation.,NEW HORIZON Elementary 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A654,U654,東京書籍,My Best Memory.,NEW HORIZON Elementary 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A655,U655,東京書籍,"My Future, My Dream.",NEW HORIZON Elementary 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
+A656,U656,東京書籍,Welcome to Junior High School.,NEW HORIZON Elementary 6,6,https://ten.tokyo-shoseki.co.jp/text/shou/,needs_review
