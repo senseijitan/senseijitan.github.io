@@ -1,6 +1,8 @@
 
 const K='senseiJitanAI_v3';
-const state=JSON.parse(localStorage.getItem(K)||'null')||{subject:'math',grade:6,unit:'比とその利用',level:'standard',favorites:[],recents:[],usage:{},total:0};
+const state=JSON.parse(localStorage.getItem(K)||'null')||{subject:'math',grade:6,unit:'比とその利用',level:'standard',boardTemplate:'flow',favorites:[],recents:[],usage:{},total:0};
+
+if(!state.boardTemplate) state.boardTemplate='flow';
 
 const subjects={
   jp:{name:'国語',icon:'📖',class:'jp',desc:'発問・心情・要約・音読',units:['物語文を読み深める','説明文の要旨を捉える','熟語の成り立ち','漢字の使い分け'],focus:['発問','心情変化','人物関係','要約','音読']},
@@ -18,6 +20,42 @@ const levels={
   challenge:{label:'チャレンジ',desc:'理由説明・比較・応用を増やして、考えを深めます。'},
   support:{label:'特別支援配慮',desc:'文字量を抑え、視覚支援・選択式・スモールステップを優先します。'}
 };
+
+
+const boardResearchSources=[
+  {
+    name:'東洋館出版社「板書で見る全単元・全時間の授業のすべて 算数」',
+    teacher:'田中博史先生監修・筑波大学附属小学校算数部',
+    note:'板書を授業設計そのものとして見せる構成。問題→問い→児童の考え→比較→まとめの流れが明確。',
+    url:'https://www.toyokan.co.jp/products/4029'
+  },
+  {
+    name:'東京書籍 math connect「思考を見せる板書例」',
+    teacher:'各実践執筆教員',
+    note:'答えだけでなく、考え方の理由・図・誤答・比較を板書に残す構成が参考になる。',
+    url:'https://mathconnect.tokyo-shoseki.co.jp/tokusyu/bansyo/'
+  },
+  {
+    name:'東京書籍「どうとくのわ」板書例',
+    teacher:'全国の実践教員',
+    note:'写真を使い、発問・児童の意見・価値の整理が視覚的に追える。算数以外の板書設計にも応用可能。',
+    url:'https://sites.google.com/tokyo-shoseki.co.jp/doutokunowa/%E5%B0%8F%E5%AD%A6%E6%A0%A1/%E6%9D%BF%E6%9B%B8%E4%BE%8B'
+  },
+  {
+    name:'東洋館出版社「小学校算数 板書とノートを変えると子どもが伸びる」',
+    teacher:'二宮裕之先生・鴨田均先生ほか',
+    note:'板書と児童ノートの連動、学習過程を見える形に残す考え方が参考になる。',
+    url:'https://www.toyokan.co.jp/products/2812'
+  }
+];
+
+const boardTemplates=[
+  {id:'flow',name:'思考の流れ型',short:'問題→問い→考え→比較→まとめ',best:'算数・理科',desc:'授業の時間の流れを左から右へ残す。明日の授業をそのままイメージしやすい標準型。'},
+  {id:'compare',name:'考え比較型',short:'考えA｜考えB｜共通点・違い',best:'算数・国語・社会',desc:'複数の児童の考えや資料を並列表示し、比較から学びを深める型。'},
+  {id:'visual',name:'図解中心型',short:'大きな図＋式＋短い言葉',best:'算数・理科・特別支援',desc:'文字量を抑え、数直線・実験図・関係図などを中心に理解させる型。'},
+  {id:'question',name:'問い深掘り型',short:'大きな問い→予想→根拠→再考',best:'国語・社会・理科',desc:'中心発問を板書の中央に置き、児童の意見や根拠を周囲に集める型。'},
+  {id:'minimal',name:'シンプル時短型',short:'めあて→要点3つ→まとめ',best:'全教科',desc:'板書量を最小限にして、準備と書く時間を減らす。短時間授業や復習にも向く。'}
+];
 
 const demo={
   jp:{
@@ -183,10 +221,22 @@ function renderUnit(){
         <section id="lesson" class="content card"><h2>📚 45分授業案 <span class="muted">・${lv.label}</span></h2>
           <div class="mini"><b>ねらい</b><div>${adapt(d.goal)}</div></div><div class="mini"><b>楽しい導入</b><div>${adapt(d.hook)}</div></div>
           <div class="timeline">${d.timeline.map(x=>`<div class="timeline-row"><b>${x[0]}</b><span>${adapt(x[1])}</span></div>`).join('')}</div></section>
-        <section id="board" class="content card"><h2>🧑‍🏫 板書サンプル</h2>
-          <div class="visual-board"><div><h3>めあて</h3><div class="chalk">${adapt(d.board[0])}</div></div>
-          <div><h4>考える・比べる</h4><div class="chalk">${adapt(d.board[1])}</div><div class="illust">${boardIllust(state.subject)}</div></div>
-          <div><h4>まとめ</h4><div class="chalk">${adapt(d.board[2])}</div><small>${d.extra}</small></div></div></section>
+        <section id="board" class="content card">
+          <div class="section-head"><div><h2>🧑‍🏫 板書サンプル</h2><div class="muted">人気の実践板書に共通する構成を分析した「先生時短AI独自板書」です。元画像の転載はしません。</div></div></div>
+          <div class="board-template-tabs">${boardTemplates.map(t=>`<button data-board-template="${t.id}" class="${state.boardTemplate===t.id?'active':''}">${t.name}</button>`).join('')}</div>
+          <div class="board-template-note"><b>${boardTemplates.find(t=>t.id===state.boardTemplate).name}</b>：${boardTemplates.find(t=>t.id===state.boardTemplate).desc}</div>
+          ${renderBoardByTemplate(state.boardTemplate,d)}
+          <div class="board-actions">
+            <button class="unit-card" data-anchor="research">実践板書の参考元を見る</button>
+            <button class="unit-card" id="board-large">板書を大きく見る</button>
+          </div>
+        </section>
+        <section id="research" class="content card"><h2>🔎 実践板書リサーチ</h2>
+          <p>先生時短AIでは、公開されている優れた板書実践の<strong>構成・見せ方・授業の流れ</strong>を研究し、独自板書に反映します。第三者の板書画像は許諾なく転載しません。</p>
+          <div class="research-grid">${boardResearchSources.map((r,i)=>`<article class="research-card"><span class="source-no">参考${i+1}</span><h3>${r.name}</h3><p class="muted">${r.teacher}</p><p>${r.note}</p><a href="${r.url}" target="_blank" rel="noopener noreferrer">公式・公開ページを見る ↗</a></article>`).join('')}</div>
+          <h3 style="margin-top:22px">先生時短AI 板書テンプレート5種</h3>
+          <div class="lesson-grid">${boardTemplates.map(t=>`<div class="mini"><b>${t.name}</b><div>${t.short}</div><div class="muted">おすすめ：${t.best}</div></div>`).join('')}</div>
+        </section>
         <section id="visual" class="content card"><h2>🖼 図・挿絵・視覚支援</h2>
           <div class="lesson-grid">${visualIdeas(state.subject).map(x=>`<div class="figure-card"><div class="figure">${x[0]}</div><b>${x[1]}</b><div class="muted">${x[2]}</div></div>`).join('')}</div></section>
         <section id="activity" class="content card"><h2>🎮 楽しい活動 / あと5分</h2>
@@ -199,6 +249,17 @@ function renderUnit(){
       </div>
     </section>`;
   document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{state.level=b.dataset.level;track('level',`${s.name} ${levels[state.level].label}`);mount('unit')});
+  document.querySelectorAll('[data-board-template]').forEach(b=>b.onclick=()=>{
+    state.boardTemplate=b.dataset.boardTemplate;
+    track('boardTemplate',boardTemplates.find(t=>t.id===state.boardTemplate).name);
+    mount('unit');
+  });
+  const boardLarge=document.querySelector('#board-large');
+  if(boardLarge) boardLarge.onclick=()=>{
+    const board=document.querySelector('#board .visual-board');
+    if(board?.requestFullscreen) board.requestFullscreen();
+    else board.scrollIntoView({behavior:'smooth',block:'center'});
+  };
   document.querySelectorAll('[data-anchor]').forEach(b=>b.onclick=()=>document.querySelector('#'+b.dataset.anchor).scrollIntoView({behavior:'smooth',block:'start'}));
   document.querySelector('#fav').onclick=()=>{const lab=`小${state.grade} ${s.name}「${state.unit}」`;if(!state.favorites.includes(lab))state.favorites.unshift(lab);track('favorite',lab);mount('unit')};
   document.querySelector('#regen').onclick=()=>{track('quiz',`${s.name}ミニテスト`);alert('正式版では、教科・単元・レベルに応じてAIが別問題と生徒向け解説を生成します。')};
@@ -210,6 +271,43 @@ function adapt(t){
   if(state.level==='support') return t+' ※短い文・視覚支援・選択式を優先します。';
   return t;
 }
+
+function renderBoardByTemplate(type,d){
+  if(type==='compare'){
+    return `<div class="visual-board compare-board">
+      <div><h3>問題・めあて</h3><div class="chalk">${adapt(d.board[0])}</div></div>
+      <div><h4>考えA</h4><div class="chalk">図や言葉で考える<br>${boardIllust(state.subject)}</div><h4>考えB</h4><div class="chalk">${adapt(d.board[1])}</div></div>
+      <div><h4>比べる</h4><div class="chalk">同じところ／違うところ</div><h4>まとめ</h4><div class="chalk">${adapt(d.board[2])}</div></div>
+    </div>`;
+  }
+  if(type==='visual'){
+    return `<div class="visual-board visual-focus-board">
+      <div><h3>めあて</h3><div class="chalk">${adapt(d.board[0])}</div></div>
+      <div class="big-visual"><h4>大きな図・関係</h4><div class="illust">${boardIllust(state.subject)}</div><div class="chalk">${adapt(d.board[1])}</div></div>
+      <div><h4>式・短い言葉</h4><div class="chalk">${adapt(d.board[2])}</div></div>
+    </div>`;
+  }
+  if(type==='question'){
+    return `<div class="visual-board question-board">
+      <div><h3>今日の問い</h3><div class="chalk">${adapt(d.board[0])}</div><div class="chalk">予想：どうなる？</div></div>
+      <div><h4>根拠・考え</h4><div class="chalk">${adapt(d.board[1])}</div><div class="illust">${boardIllust(state.subject)}</div></div>
+      <div><h4>もう一度考える</h4><div class="chalk">最初の予想と比べよう</div><h4>まとめ</h4><div class="chalk">${adapt(d.board[2])}</div></div>
+    </div>`;
+  }
+  if(type==='minimal'){
+    return `<div class="visual-board minimal-board">
+      <div><h3>めあて</h3><div class="chalk">${adapt(d.board[0])}</div></div>
+      <div><h4>要点</h4><div class="chalk">① ${adapt(d.board[1])}<br>② ${boardIllust(state.subject)}<br>③ 大事な言葉</div></div>
+      <div><h4>まとめ</h4><div class="chalk">${adapt(d.board[2])}</div></div>
+    </div>`;
+  }
+  return `<div class="visual-board">
+    <div><h3>めあて</h3><div class="chalk">${adapt(d.board[0])}</div></div>
+    <div><h4>考える・比べる</h4><div class="chalk">${adapt(d.board[1])}</div><div class="illust">${boardIllust(state.subject)}</div></div>
+    <div><h4>まとめ</h4><div class="chalk">${adapt(d.board[2])}</div><small>${d.extra}</small></div>
+  </div>`;
+}
+
 function boardIllust(sub){return {jp:'👤💭➡️😊',math:'🥤2：3 ⇄ 4：6',science:'🔥🧪➡️📊',social:'🗾📜➡️🔎',english:'🗣️ “I like…” ↔ 👥'}[sub]}
 function visualIdeas(sub){
   return {
@@ -267,5 +365,5 @@ function matrixHtml(){
   ];
   return `<div style="overflow:auto"><table class="matrix"><thead><tr><th>機能</th><th>国語</th><th>算数</th><th>理科</th><th>社会</th><th>英語</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
-function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',favorite:'お気に入り',quiz:'ミニテスト'}[k]||k)}
+function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',favorite:'お気に入り',quiz:'ミニテスト',boardTemplate:'板書テンプレート'}[k]||k)}
 mount('home');
