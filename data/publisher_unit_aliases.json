@@ -1,0 +1,2172 @@
+[
+  {
+    "alias_id": "A101",
+    "unit_id": "U101",
+    "publisher": "光村図書",
+    "publisher_unit_name": "あさのおひさま・ひらがな",
+    "textbook_name": "国語 一上",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A102",
+    "unit_id": "U102",
+    "publisher": "光村図書",
+    "publisher_unit_name": "おおきなかぶ",
+    "textbook_name": "国語 一上",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A103",
+    "unit_id": "U103",
+    "publisher": "光村図書",
+    "publisher_unit_name": "じどう車くらべ",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A104",
+    "unit_id": "U104",
+    "publisher": "光村図書",
+    "publisher_unit_name": "はなしたいな ききたいな",
+    "textbook_name": "国語 一上",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A105",
+    "unit_id": "U105",
+    "publisher": "光村図書",
+    "publisher_unit_name": "あったことをかこう",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A106",
+    "unit_id": "U106",
+    "publisher": "光村図書",
+    "publisher_unit_name": "かん字のはなし",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A107",
+    "unit_id": "U107",
+    "publisher": "光村図書",
+    "publisher_unit_name": "かたかなをみつけよう",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A108",
+    "unit_id": "U108",
+    "publisher": "光村図書",
+    "publisher_unit_name": "ことばあそび",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A109",
+    "unit_id": "U109",
+    "publisher": "光村図書",
+    "publisher_unit_name": "おみせやさんごっこ",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A110",
+    "unit_id": "U110",
+    "publisher": "光村図書",
+    "publisher_unit_name": "たぬきの糸車",
+    "textbook_name": "国語 一下",
+    "school_year": 1,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A111",
+    "unit_id": "U111",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "かずとすうじ",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A112",
+    "unit_id": "U112",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "たしざん(1)",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A113",
+    "unit_id": "U113",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ひきざん(1)",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A114",
+    "unit_id": "U114",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ながさくらべ",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A115",
+    "unit_id": "U115",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "かたちあそび",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A116",
+    "unit_id": "U116",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "10よりおおきいかず",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A117",
+    "unit_id": "U117",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "3つのかずのけいさん",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A118",
+    "unit_id": "U118",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "たしざん(2)",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A119",
+    "unit_id": "U119",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ひきざん(2)",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A120",
+    "unit_id": "U120",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "おおきいかず",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A121",
+    "unit_id": "U121",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "とけい",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A122",
+    "unit_id": "U122",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "かたちづくり",
+    "textbook_name": "新しい算数 1",
+    "school_year": 1,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A201",
+    "unit_id": "U201",
+    "publisher": "光村図書",
+    "publisher_unit_name": "かん字の広場",
+    "textbook_name": "国語 二上",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A202",
+    "unit_id": "U202",
+    "publisher": "光村図書",
+    "publisher_unit_name": "ふきのとう / スイミー",
+    "textbook_name": "国語 二上",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A203",
+    "unit_id": "U203",
+    "publisher": "光村図書",
+    "publisher_unit_name": "たんぽぽのちえ / さけが大きくなるまで",
+    "textbook_name": "国語 二上",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A204",
+    "unit_id": "U204",
+    "publisher": "光村図書",
+    "publisher_unit_name": "道案内をしよう",
+    "textbook_name": "国語 二上",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A205",
+    "unit_id": "U205",
+    "publisher": "光村図書",
+    "publisher_unit_name": "おはなしのさくしゃになろう",
+    "textbook_name": "国語 二下",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A206",
+    "unit_id": "U206",
+    "publisher": "光村図書",
+    "publisher_unit_name": "かんさつ名人になろう",
+    "textbook_name": "国語 二上",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A207",
+    "unit_id": "U207",
+    "publisher": "光村図書",
+    "publisher_unit_name": "詩をたのしもう",
+    "textbook_name": "国語 二下",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A208",
+    "unit_id": "U208",
+    "publisher": "光村図書",
+    "publisher_unit_name": "声に出して読もう",
+    "textbook_name": "国語 二上",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A209",
+    "unit_id": "U209",
+    "publisher": "光村図書",
+    "publisher_unit_name": "はんたいの意味のことば",
+    "textbook_name": "国語 二下",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A210",
+    "unit_id": "U210",
+    "publisher": "光村図書",
+    "publisher_unit_name": "お手紙 (音読げき)",
+    "textbook_name": "国語 二下",
+    "school_year": 2,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A211",
+    "unit_id": "U211",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ひょうとグラフ",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A212",
+    "unit_id": "U212",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "たし算のひっ算",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A213",
+    "unit_id": "U213",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ひき算のひっ算",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A214",
+    "unit_id": "U214",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "長さ",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A215",
+    "unit_id": "U215",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "水のかさ",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A216",
+    "unit_id": "U216",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "かけ算(1)",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A217",
+    "unit_id": "U217",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "かけ算(2)",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A218",
+    "unit_id": "U218",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "1000までの数",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A219",
+    "unit_id": "U219",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "10000までの数",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A220",
+    "unit_id": "U220",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "分数",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A221",
+    "unit_id": "U221",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "はこづくり",
+    "textbook_name": "新しい算数 2",
+    "school_year": 2,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A301",
+    "unit_id": "U301",
+    "publisher": "光村図書",
+    "publisher_unit_name": "漢字の広場(3年)",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A302",
+    "unit_id": "U302",
+    "publisher": "光村図書",
+    "publisher_unit_name": "国語辞典の引き方",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A303",
+    "unit_id": "U303",
+    "publisher": "光村図書",
+    "publisher_unit_name": "ちいちゃんのかげおくり / モチモチの木",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A304",
+    "unit_id": "U304",
+    "publisher": "光村図書",
+    "publisher_unit_name": "こまを楽しむ / ありの行列",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A305",
+    "unit_id": "U305",
+    "publisher": "光村図書",
+    "publisher_unit_name": "すじ道を立てて話そう",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A306",
+    "unit_id": "U306",
+    "publisher": "光村図書",
+    "publisher_unit_name": "調べたことをほうこくしよう",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A307",
+    "unit_id": "U307",
+    "publisher": "光村図書",
+    "publisher_unit_name": "ローマ字",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A308",
+    "unit_id": "U308",
+    "publisher": "光村図書",
+    "publisher_unit_name": "詩を読もう",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A309",
+    "unit_id": "U309",
+    "publisher": "光村図書",
+    "publisher_unit_name": "ことわざ・慣用句",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A310",
+    "unit_id": "U310",
+    "publisher": "光村図書",
+    "publisher_unit_name": "本を読もう",
+    "textbook_name": "国語 三",
+    "school_year": 3,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A311",
+    "unit_id": "U311",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "かけ算の筆算(1)",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A312",
+    "unit_id": "U312",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わり算",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A313",
+    "unit_id": "U313",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "あまりのあるわり算",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A314",
+    "unit_id": "U314",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "たし算とひき算の筆算",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A315",
+    "unit_id": "U315",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "長さと道のり(km)",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A316",
+    "unit_id": "U316",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "重さ(g/kg)",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A317",
+    "unit_id": "U317",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "円と球",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A318",
+    "unit_id": "U318",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "小数",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A319",
+    "unit_id": "U319",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "分数",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A320",
+    "unit_id": "U320",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "棒グラフ",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A321",
+    "unit_id": "U321",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "表とグラフ",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A322",
+    "unit_id": "U322",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "三角形",
+    "textbook_name": "新しい算数 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A331",
+    "unit_id": "U331",
+    "publisher": "啓林館",
+    "publisher_unit_name": "チョウを育てよう",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A332",
+    "unit_id": "U332",
+    "publisher": "啓林館",
+    "publisher_unit_name": "植物を育てよう",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A333",
+    "unit_id": "U333",
+    "publisher": "啓林館",
+    "publisher_unit_name": "しぜんのかんさつ",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A334",
+    "unit_id": "U334",
+    "publisher": "啓林館",
+    "publisher_unit_name": "太陽と地面の様子",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A335",
+    "unit_id": "U335",
+    "publisher": "啓林館",
+    "publisher_unit_name": "光のせいしつ",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A336",
+    "unit_id": "U336",
+    "publisher": "啓林館",
+    "publisher_unit_name": "音のせいしつ",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A337",
+    "unit_id": "U337",
+    "publisher": "啓林館",
+    "publisher_unit_name": "じしゃくのせいしつ",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A338",
+    "unit_id": "U338",
+    "publisher": "啓林館",
+    "publisher_unit_name": "物の重さ",
+    "textbook_name": "わくわく理科 3",
+    "school_year": 3,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A341",
+    "unit_id": "U341",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わたしたちのまちと市",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A342",
+    "unit_id": "U342",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "市の様子と人々のくらし",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A343",
+    "unit_id": "U343",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "店ではたらく人",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A344",
+    "unit_id": "U344",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "工場・農家ではたらく人",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A345",
+    "unit_id": "U345",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "事故や事件からまちを守る",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A346",
+    "unit_id": "U346",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "火事からまちを守る",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A347",
+    "unit_id": "U347",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "市のうつりかわり",
+    "textbook_name": "新編 新しい社会 3",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A351",
+    "unit_id": "U351",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Hello!",
+    "textbook_name": "Let's Try! 1 (準拠)",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A352",
+    "unit_id": "U352",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "How are you?",
+    "textbook_name": "Let's Try! 1 (準拠)",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A353",
+    "unit_id": "U353",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "How many?",
+    "textbook_name": "Let's Try! 1 (準拠)",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A354",
+    "unit_id": "U354",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "I like blue.",
+    "textbook_name": "Let's Try! 1 (準拠)",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A355",
+    "unit_id": "U355",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ALPHABET",
+    "textbook_name": "Let's Try! 1 (準拠)",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A356",
+    "unit_id": "U356",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "What's this?",
+    "textbook_name": "Let's Try! 1 (準拠)",
+    "school_year": 3,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A401",
+    "unit_id": "U401",
+    "publisher": "光村図書",
+    "publisher_unit_name": "漢字の広場(4年)",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A402",
+    "unit_id": "U402",
+    "publisher": "光村図書",
+    "publisher_unit_name": "漢字辞典の引き方",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A403",
+    "unit_id": "U403",
+    "publisher": "光村図書",
+    "publisher_unit_name": "白いぼうし / ごんぎつね",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A404",
+    "unit_id": "U404",
+    "publisher": "光村図書",
+    "publisher_unit_name": "アップとルーズで伝える / ウナギのなぞを追って",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A405",
+    "unit_id": "U405",
+    "publisher": "光村図書",
+    "publisher_unit_name": "対話の練習",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A406",
+    "unit_id": "U406",
+    "publisher": "光村図書",
+    "publisher_unit_name": "新聞を作ろう",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A407",
+    "unit_id": "U407",
+    "publisher": "光村図書",
+    "publisher_unit_name": "百人一首",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A408",
+    "unit_id": "U408",
+    "publisher": "光村図書",
+    "publisher_unit_name": "詩を味わおう",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A409",
+    "unit_id": "U409",
+    "publisher": "光村図書",
+    "publisher_unit_name": "慣用句",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A410",
+    "unit_id": "U410",
+    "publisher": "光村図書",
+    "publisher_unit_name": "アンケートをまとめて書こう",
+    "textbook_name": "国語 四",
+    "school_year": 4,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A411",
+    "unit_id": "U411",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わり算の筆算(1)",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A412",
+    "unit_id": "U412",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わり算の筆算(2)",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A413",
+    "unit_id": "U413",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "角の大きさ",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A414",
+    "unit_id": "U414",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "折れ線グラフ",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A415",
+    "unit_id": "U415",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "面積",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A416",
+    "unit_id": "U416",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "小数のしくみとたし算・ひき算",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A417",
+    "unit_id": "U417",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "小数のかけ算とわり算",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A418",
+    "unit_id": "U418",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "分数",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A419",
+    "unit_id": "U419",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "垂直・平行と四角形",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A420",
+    "unit_id": "U420",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "直方体と立方体",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A421",
+    "unit_id": "U421",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "変わり方",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A422",
+    "unit_id": "U422",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "そろばん",
+    "textbook_name": "新しい算数 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A431",
+    "unit_id": "U431",
+    "publisher": "啓林館",
+    "publisher_unit_name": "季節と生物",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A432",
+    "unit_id": "U432",
+    "publisher": "啓林館",
+    "publisher_unit_name": "天気のようすと気温",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A433",
+    "unit_id": "U433",
+    "publisher": "啓林館",
+    "publisher_unit_name": "動物のからだのつくりと運動",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A434",
+    "unit_id": "U434",
+    "publisher": "啓林館",
+    "publisher_unit_name": "電池のはたらき",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A435",
+    "unit_id": "U435",
+    "publisher": "啓林館",
+    "publisher_unit_name": "星の明るさと色・月の動き",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A436",
+    "unit_id": "U436",
+    "publisher": "啓林館",
+    "publisher_unit_name": "閉じ込めた空気と水",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A437",
+    "unit_id": "U437",
+    "publisher": "啓林館",
+    "publisher_unit_name": "物のあたたまり方",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A438",
+    "unit_id": "U438",
+    "publisher": "啓林館",
+    "publisher_unit_name": "水のすがたと温度",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A439",
+    "unit_id": "U439",
+    "publisher": "啓林館",
+    "publisher_unit_name": "自然の観察まとめ",
+    "textbook_name": "わくわく理科 4",
+    "school_year": 4,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A441",
+    "unit_id": "U441",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わたしたちの県",
+    "textbook_name": "新編 新しい社会 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A442",
+    "unit_id": "U442",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "水はどこから",
+    "textbook_name": "新編 新しい社会 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A443",
+    "unit_id": "U443",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "ごみのしょりと利用",
+    "textbook_name": "新編 新しい社会 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A444",
+    "unit_id": "U444",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "災害にそなえる",
+    "textbook_name": "新編 新しい社会 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A445",
+    "unit_id": "U445",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "特色ある地域と人々のくらし",
+    "textbook_name": "新編 新しい社会 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A446",
+    "unit_id": "U446",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "きょう土の伝統・文化",
+    "textbook_name": "新編 新しい社会 4",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A451",
+    "unit_id": "U451",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Let's play cards.",
+    "textbook_name": "Let's Try! 2 (準拠)",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A452",
+    "unit_id": "U452",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "What time is it?",
+    "textbook_name": "Let's Try! 2 (準拠)",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A453",
+    "unit_id": "U453",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Do you have a pen?",
+    "textbook_name": "Let's Try! 2 (準拠)",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A454",
+    "unit_id": "U454",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Alphabet (lowercase)",
+    "textbook_name": "Let's Try! 2 (準拠)",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A455",
+    "unit_id": "U455",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "What do you want?",
+    "textbook_name": "Let's Try! 2 (準拠)",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A456",
+    "unit_id": "U456",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "This is my day.",
+    "textbook_name": "Let's Try! 2 (準拠)",
+    "school_year": 4,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A501",
+    "unit_id": "U501",
+    "publisher": "光村図書",
+    "publisher_unit_name": "漢字の広場(5年)",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A502",
+    "unit_id": "U502",
+    "publisher": "光村図書",
+    "publisher_unit_name": "敬語の使い方",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A503",
+    "unit_id": "U503",
+    "publisher": "光村図書",
+    "publisher_unit_name": "大造じいさんとガン",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A504",
+    "unit_id": "U504",
+    "publisher": "光村図書",
+    "publisher_unit_name": "見立てる / 想像力のスイッチを入れよう",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A505",
+    "unit_id": "U505",
+    "publisher": "光村図書",
+    "publisher_unit_name": "事実と意見を区別して書こう",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A506",
+    "unit_id": "U506",
+    "publisher": "光村図書",
+    "publisher_unit_name": "よりよい学校生活のために (討論)",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A507",
+    "unit_id": "U507",
+    "publisher": "光村図書",
+    "publisher_unit_name": "古典の世界 (竹取物語など)",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A508",
+    "unit_id": "U508",
+    "publisher": "光村図書",
+    "publisher_unit_name": "和語・漢語・外来語 / 引用",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A509",
+    "unit_id": "U509",
+    "publisher": "光村図書",
+    "publisher_unit_name": "詩を味わおう",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A510",
+    "unit_id": "U510",
+    "publisher": "光村図書",
+    "publisher_unit_name": "メディアと関わる",
+    "textbook_name": "国語 五",
+    "school_year": 5,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A511",
+    "unit_id": "U511",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "整数と小数",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A512",
+    "unit_id": "U512",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "体積",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A513",
+    "unit_id": "U513",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "比例",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A514",
+    "unit_id": "U514",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "小数のかけ算",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A515",
+    "unit_id": "U515",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "小数のわり算",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A516",
+    "unit_id": "U516",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "合同な図形",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A517",
+    "unit_id": "U517",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "偶数と奇数・倍数と約数",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A518",
+    "unit_id": "U518",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "分数のたし算とひき算",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A519",
+    "unit_id": "U519",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "平均",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A520",
+    "unit_id": "U520",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "単位量あたりの大きさ",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A521",
+    "unit_id": "U521",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "割合",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A522",
+    "unit_id": "U522",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "正多角形と円",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A523",
+    "unit_id": "U523",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "帯グラフと円グラフ",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A524",
+    "unit_id": "U524",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "角柱と円柱",
+    "textbook_name": "新しい算数 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A531",
+    "unit_id": "U531",
+    "publisher": "啓林館",
+    "publisher_unit_name": "天気の変化",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A532",
+    "unit_id": "U532",
+    "publisher": "啓林館",
+    "publisher_unit_name": "植物の発芽と成長",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A533",
+    "unit_id": "U533",
+    "publisher": "啓林館",
+    "publisher_unit_name": "メダカのたんじょう",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A534",
+    "unit_id": "U534",
+    "publisher": "啓林館",
+    "publisher_unit_name": "台風と天気の変化",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A535",
+    "unit_id": "U535",
+    "publisher": "啓林館",
+    "publisher_unit_name": "花から実へ",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A536",
+    "unit_id": "U536",
+    "publisher": "啓林館",
+    "publisher_unit_name": "流れる水のはたらき",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A537",
+    "unit_id": "U537",
+    "publisher": "啓林館",
+    "publisher_unit_name": "ふりこの動き",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A538",
+    "unit_id": "U538",
+    "publisher": "啓林館",
+    "publisher_unit_name": "物のとけ方",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A539",
+    "unit_id": "U539",
+    "publisher": "啓林館",
+    "publisher_unit_name": "電磁石の性質",
+    "textbook_name": "わくわく理科 5",
+    "school_year": 5,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A541",
+    "unit_id": "U541",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "世界の中の国土",
+    "textbook_name": "新編 新しい社会 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A542",
+    "unit_id": "U542",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わたしたちの生活と食料生産",
+    "textbook_name": "新編 新しい社会 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A543",
+    "unit_id": "U543",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "水産業のさかんな地域",
+    "textbook_name": "新編 新しい社会 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A544",
+    "unit_id": "U544",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "わたしたちの生活と工業生産",
+    "textbook_name": "新編 新しい社会 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A545",
+    "unit_id": "U545",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "情報化社会とわたしたちの生活",
+    "textbook_name": "新編 新しい社会 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A546",
+    "unit_id": "U546",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "環境を守るわたしたち",
+    "textbook_name": "新編 新しい社会 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A551",
+    "unit_id": "U551",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Hello, everyone.",
+    "textbook_name": "NEW HORIZON Elementary 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A552",
+    "unit_id": "U552",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "When is your birthday?",
+    "textbook_name": "NEW HORIZON Elementary 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A553",
+    "unit_id": "U553",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "What do you have on Monday?",
+    "textbook_name": "NEW HORIZON Elementary 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A554",
+    "unit_id": "U554",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "I can run fast.",
+    "textbook_name": "NEW HORIZON Elementary 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A555",
+    "unit_id": "U555",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Where is the post office?",
+    "textbook_name": "NEW HORIZON Elementary 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A556",
+    "unit_id": "U556",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Who is your hero?",
+    "textbook_name": "NEW HORIZON Elementary 5",
+    "school_year": 5,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A601",
+    "unit_id": "U601",
+    "publisher": "光村図書",
+    "publisher_unit_name": "漢字の広場(6年)",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A602",
+    "unit_id": "U602",
+    "publisher": "光村図書",
+    "publisher_unit_name": "海の命 / やまなし",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A603",
+    "unit_id": "U603",
+    "publisher": "光村図書",
+    "publisher_unit_name": "鳥獣戯画を読む / プロフェッショナルたち",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A604",
+    "unit_id": "U604",
+    "publisher": "光村図書",
+    "publisher_unit_name": "随筆を通して考えを深める",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A605",
+    "unit_id": "U605",
+    "publisher": "光村図書",
+    "publisher_unit_name": "町の未来をえがこう (提案文)",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A606",
+    "unit_id": "U606",
+    "publisher": "光村図書",
+    "publisher_unit_name": "話し合って考えを深めよう",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A607",
+    "unit_id": "U607",
+    "publisher": "光村図書",
+    "publisher_unit_name": "狂言「柿山伏」",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A608",
+    "unit_id": "U608",
+    "publisher": "光村図書",
+    "publisher_unit_name": "複数の情報を比較する",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A609",
+    "unit_id": "U609",
+    "publisher": "光村図書",
+    "publisher_unit_name": "詩を味わおう",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A610",
+    "unit_id": "U610",
+    "publisher": "光村図書",
+    "publisher_unit_name": "今、私は、ぼくは (スピーチ)",
+    "textbook_name": "国語 六",
+    "school_year": 6,
+    "source_url": "https://www.mitsumura-tosho.co.jp/kyokasho/s_kokugo/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A611",
+    "unit_id": "U611",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "対称な図形",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A612",
+    "unit_id": "U612",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "文字と式",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A613",
+    "unit_id": "U613",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "分数のかけ算",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A614",
+    "unit_id": "U614",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "分数のわり算",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A615",
+    "unit_id": "U615",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "比",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A616",
+    "unit_id": "U616",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "拡大図と縮図",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A617",
+    "unit_id": "U617",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "円の面積",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A618",
+    "unit_id": "U618",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "立体の体積",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A619",
+    "unit_id": "U619",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "比例と反比例",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A620",
+    "unit_id": "U620",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "データの活用",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A621",
+    "unit_id": "U621",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "量と単位",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A622",
+    "unit_id": "U622",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "算数のまとめ",
+    "textbook_name": "新しい算数 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A631",
+    "unit_id": "U631",
+    "publisher": "啓林館",
+    "publisher_unit_name": "燃焼のしくみ",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A632",
+    "unit_id": "U632",
+    "publisher": "啓林館",
+    "publisher_unit_name": "人の体のつくりとはたらき",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A633",
+    "unit_id": "U633",
+    "publisher": "啓林館",
+    "publisher_unit_name": "植物の養分と水",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A634",
+    "unit_id": "U634",
+    "publisher": "啓林館",
+    "publisher_unit_name": "生き物と環境",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A635",
+    "unit_id": "U635",
+    "publisher": "啓林館",
+    "publisher_unit_name": "月と太陽",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A636",
+    "unit_id": "U636",
+    "publisher": "啓林館",
+    "publisher_unit_name": "大地のつくりと変化",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A637",
+    "unit_id": "U637",
+    "publisher": "啓林館",
+    "publisher_unit_name": "水溶液の性質",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A638",
+    "unit_id": "U638",
+    "publisher": "啓林館",
+    "publisher_unit_name": "てこのはたらき",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A639",
+    "unit_id": "U639",
+    "publisher": "啓林館",
+    "publisher_unit_name": "発電と電気の利用",
+    "textbook_name": "わくわく理科 6",
+    "school_year": 6,
+    "source_url": "https://www.shinko-keirin.co.jp/keirinkan/sho/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A641",
+    "unit_id": "U641",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "日本の政治のしくみ",
+    "textbook_name": "新編 新しい社会 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A642",
+    "unit_id": "U642",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "国の政治の働き",
+    "textbook_name": "新編 新しい社会 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A643",
+    "unit_id": "U643",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "長く続いた戦争と人々のくらし(歴史1)",
+    "textbook_name": "新編 新しい社会 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A644",
+    "unit_id": "U644",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "天下統一と江戸幕府(歴史2)",
+    "textbook_name": "新編 新しい社会 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A645",
+    "unit_id": "U645",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "明治の国づくりと現代(歴史3)",
+    "textbook_name": "新編 新しい社会 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A646",
+    "unit_id": "U646",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "世界の中の日本",
+    "textbook_name": "新編 新しい社会 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A651",
+    "unit_id": "U651",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "This is me.",
+    "textbook_name": "NEW HORIZON Elementary 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A652",
+    "unit_id": "U652",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "My Daily Life.",
+    "textbook_name": "NEW HORIZON Elementary 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A653",
+    "unit_id": "U653",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "My Summer Vacation.",
+    "textbook_name": "NEW HORIZON Elementary 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A654",
+    "unit_id": "U654",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "My Best Memory.",
+    "textbook_name": "NEW HORIZON Elementary 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A655",
+    "unit_id": "U655",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "My Future, My Dream.",
+    "textbook_name": "NEW HORIZON Elementary 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  },
+  {
+    "alias_id": "A656",
+    "unit_id": "U656",
+    "publisher": "東京書籍",
+    "publisher_unit_name": "Welcome to Junior High School.",
+    "textbook_name": "NEW HORIZON Elementary 6",
+    "school_year": 6,
+    "source_url": "https://ten.tokyo-shoseki.co.jp/text/shou/",
+    "status": "needs_review"
+  }
+]
