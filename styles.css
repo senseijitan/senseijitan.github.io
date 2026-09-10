@@ -246,3 +246,52 @@ button{cursor:pointer}
   .unit-filter-row{grid-template-columns:1fr}
   .unit-db-meta{grid-template-columns:1fr}
 }
+
+/* v8 materials database */
+.material-filter{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 16px}
+.material-filter button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-weight:800}
+.material-filter button.active{background:#173d31;color:#fff;border-color:#173d31}
+.material-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.material-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:9px}
+.material-card-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.material-cat{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;background:#eef5ff;font-size:.74rem;font-weight:850}
+.material-status{display:inline-flex;border-radius:999px;padding:4px 8px;font-size:.7rem;font-weight:850}
+.material-status.verified{background:#e8f7ef;color:#176a42}
+.material-status.review{background:#fff4d6;color:#7d5e00}
+.material-card h3{margin:0;font-size:1.03rem;line-height:1.45}
+.material-provider{margin:0;color:var(--muted);font-weight:800}
+.material-scores{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;font-size:.78rem}
+.material-scores span{background:#f7f9fc;border-radius:9px;padding:7px}
+.material-use{display:flex;flex-direction:column;gap:3px;font-size:.83rem}
+.material-link{margin-top:auto;display:inline-flex;justify-content:center;text-decoration:none;background:#173d31;color:#fff;border-radius:11px;padding:10px 12px;font-weight:900}
+@media(max-width:640px){
+  .material-grid{grid-template-columns:1fr}
+  .material-filter{flex-wrap:nowrap;overflow-x:auto}
+  .material-filter button{flex:0 0 auto}
+}
+
+/* v8.1 unit detail + bookmarks */
+.unit-detail-hero{align-items:flex-start}
+.unit-detail-actions{display:flex;flex-direction:column;gap:10px;min-width:190px}
+.bookmark-btn{border:0;border-radius:12px;background:#fff1b8;color:#5f4600;padding:12px 14px;font-weight:900;cursor:pointer}
+.unit-page-nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.unit-page-nav button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-weight:800}
+.continue-card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;margin-bottom:16px;background:linear-gradient(135deg,#f5fbff,#fff8e8)}
+.continue-card h2,.continue-card h3{margin:.25rem 0}
+.continue-card button{border:0;background:#173d31;color:#fff;border-radius:12px;padding:11px 15px;font-weight:900}
+.continue-card.compact{margin:12px 0}
+.bookmark-home{width:100%;text-align:left;border:0;background:#fff;cursor:pointer}
+.bookmark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.bookmark-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+.bookmark-card span{font-size:.78rem;color:var(--muted);font-weight:800}
+.bookmark-card h3{margin:.4rem 0 1rem}
+.bookmark-card button{border:0;background:#173d31;color:#fff;border-radius:9px;padding:8px 11px;font-weight:800;margin-right:6px}
+.bookmark-card button.ghost{background:#f2f4f7;color:#334}
+#lesson,#board,#materials,#activity,#quiz{scroll-margin-top:170px}
+@media(max-width:640px){
+  .unit-detail-actions{width:100%;min-width:0}
+  .continue-card{align-items:stretch;flex-direction:column}
+  .bookmark-grid{grid-template-columns:1fr}
+  .unit-page-nav{flex-wrap:nowrap;overflow-x:auto}
+  .unit-page-nav button{flex:0 0 auto}
+}

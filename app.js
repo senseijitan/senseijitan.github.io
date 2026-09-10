@@ -1,8 +1,90 @@
 
-const K='senseiJitanAI_v7';
+const K='senseiJitanAI_v81';
 const state=JSON.parse(localStorage.getItem(K)||'null')||{subject:'math',grade:6,unit:'比とその利用',level:'standard',boardTemplate:'flow',favorites:[],recents:[],usage:{},total:0};
 
 if(!state.boardTemplate) state.boardTemplate='flow';
+
+
+if(!Array.isArray(state.bookmarks)) state.bookmarks=[];
+if(!state.lastOpened) state.lastOpened=null;
+
+function unitUrl(grade,subject,unitId){
+  const u=new URL(window.location.href);
+  u.searchParams.set('grade',grade);
+  u.searchParams.set('subject',subject);
+  u.searchParams.set('unit',unitId);
+  return u.pathname+'?'+u.searchParams.toString();
+}
+function writeUnitUrl(){
+  if(!state.unitId) return;
+  const url=unitUrl(state.grade,state.subject,state.unitId);
+  history.replaceState({view:'unit'},'',url);
+}
+function clearUnitUrl(){
+  const u=new URL(window.location.href);
+  u.searchParams.delete('grade');
+  u.searchParams.delete('subject');
+  u.searchParams.delete('unit');
+  history.replaceState({view:'home'},'',u.pathname);
+}
+function applyUrlState(){
+  const p=new URLSearchParams(location.search);
+  const grade=Number(p.get('grade'));
+  const subject=p.get('subject');
+  const unitId=p.get('unit');
+  if(grade>=1&&grade<=6&&subject&&subjects[subject]&&unitId){
+    state.grade=grade;
+    state.subject=subject;
+    state.unitId=unitId;
+    const rec=UNIT_DB.find(u=>u.unit_id===unitId);
+    if(rec) state.unit=rec.canonical_unit_name;
+    return 'unit';
+  }
+  return null;
+}
+function bookmarkKey(){
+  return `${state.grade}:${state.subject}:${state.unitId}`;
+}
+function isBookmarked(){
+  return state.bookmarks.some(b=>b.key===bookmarkKey());
+}
+function toggleBookmark(){
+  const key=bookmarkKey();
+  if(isBookmarked()){
+    state.bookmarks=state.bookmarks.filter(b=>b.key!==key);
+  }else{
+    state.bookmarks.unshift({
+      key,
+      grade:state.grade,
+      subject:state.subject,
+      unitId:state.unitId,
+      unit:state.unit,
+      label:`小${state.grade} ${subjectUiName(state.subject)}「${state.unit}」`,
+      savedAt:Date.now()
+    });
+  }
+  save();
+}
+function rememberLastOpened(){
+  state.lastOpened={
+    grade:state.grade,
+    subject:state.subject,
+    unitId:state.unitId,
+    unit:state.unit,
+    label:`小${state.grade} ${subjectUiName(state.subject)}「${state.unit}」`,
+    openedAt:Date.now()
+  };
+  save();
+}
+function openSavedUnit(item){
+  if(!item) return;
+  state.grade=item.grade;
+  state.subject=item.subject;
+  state.unitId=item.unitId;
+  const rec=UNIT_DB.find(u=>u.unit_id===item.unitId);
+  state.unit=rec?.canonical_unit_name||item.unit||'';
+  mount('unit');
+}
 
 const subjects={
   jp:{name:'国語',icon:'📖',class:'jp',desc:'発問・心情・要約・音読',units:['物語文を読み深める','説明文の要旨を捉える','熟語の成り立ち','漢字の使い分け'],focus:['発問','心情変化','人物関係','要約','音読']},
@@ -47,6 +129,26 @@ function currentUnitRecord(){
          list.find(u=>u.canonical_unit_name===state.unit) ||
          list[0] || null;
 }
+
+function materialsForCurrentUnit(){
+  if(typeof MATERIAL_DB==='undefined') return [];
+  return MATERIAL_DB.filter(m =>
+    m.grade===state.grade &&
+    m.subject===dbSubjectName(state.subject,state.grade) &&
+    m.canonical_unit_name===state.unit
+  );
+}
+function materialCategoryIcon(cat){
+  if(cat.includes('プリント')) return '📝';
+  if(cat.includes('板書')) return '🧑‍🏫';
+  if(cat.includes('指導案')) return '📘';
+  if(cat.includes('授業実践')) return '🎓';
+  if(cat.includes('ICT')) return '💻';
+  if(cat.includes('公的')) return '🏛️';
+  if(cat.includes('教科書')) return '📚';
+  return '🔗';
+}
+
 function aliasesForUnit(unitId){
   return UNIT_ALIASES.filter(a=>a.unit_id===unitId);
 }
@@ -200,13 +302,18 @@ function renderSubjectTabs(){
 function mount(view='home'){
   ensureStateUnit();
   renderSubjectTabs();
+  if(view==='unit'){
+    writeUnitUrl();
+    rememberLastOpened();
+  }else if(view==='home'){
+    clearUnitUrl();
+  }
   if(view==='home') renderHome();
-  if(view==='subject') renderSubject();
-  if(view==='unit') renderUnit();
-  if(view==='desk') renderDesk();
-  if(view==='analytics') renderAnalytics();
-  btnView();
-  window.scrollTo({top:0,behavior:'smooth'});
+  else if(view==='subject') renderSubject();
+  else if(view==='unit') renderUnit();
+  else if(view==='desk') renderDesk();
+  else if(view==='analytics') renderAnalytics();
+  wireCommon(view);
 }
 function renderHome(){
   const subjectCards=Object.entries(subjects).map(([k,s])=>{
@@ -218,21 +325,28 @@ function renderHome(){
       <small>${available?`${count}単元を登録`:'—'}</small>
     </button>`;
   }).join('');
+  const last=state.lastOpened;
   document.querySelector('#app').innerHTML=`
+    ${last?`<section class="continue-card card">
+      <div><span class="eyebrow">前回の続き</span><h2>${last.label}</h2><p>最後に開いていた単元からすぐ再開できます。</p></div>
+      <button id="continue-last">続きから開く →</button>
+    </section>`:''}
     <section class="hero card">
       <div><p class="eyebrow">全学年・5教科 単元DB統合版</p><h1>今日は何を<br>準備しますか？</h1>
       <p>学年 → 教科 → 単元を選択。現在 <b>${UNIT_DB.length}単元</b> を登録しています。</p>
       <div class="db-warning">⚠ 現在の単元DBは調査データ取り込み版です。全件「公式確認待ち（needs_review）」として管理しています。</div></div>
       <div class="hero-visual">
         <div class="visual-chip"><b>📚 ${UNIT_DB.length}単元</b><span>1〜6年を収録</span></div>
-        <div class="visual-chip"><b>🏷 出版社別名</b><span>${UNIT_ALIASES.length}件</span></div>
+        <div class="visual-chip"><b>🔖 ${state.bookmarks.length}件</b><span>しおり保存</span></div>
         <div class="visual-chip"><b>🧑‍🏫 板書</b><span>5テンプレート</span></div>
         <div class="visual-chip"><b>📝 テスト</b><span>答え＋解説</span></div>
       </div>
     </section>
     <section class="section"><div class="section-head"><h2>教科を選ぶ</h2><span class="muted">小学校${state.grade}年</span></div><div class="subject-grid">${subjectCards}</div></section>
     <section class="section two-col">
-      <div class="card panel"><h2>⭐ お気に入り</h2><div class="list">${state.favorites.length?state.favorites.slice(0,5).map(x=>`<div class="list-item">${x}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
+      <div class="card panel"><h2>🔖 しおり</h2>
+        <div class="list">${state.bookmarks.length?state.bookmarks.slice(0,5).map((b,i)=>`<button class="list-item bookmark-home" data-bookmark-index="${i}">${b.label}</button>`).join(''):'<div class="list-item muted">まだありません</div>'}</div>
+      </div>
       <div class="card panel"><h2>🕘 最近使った</h2><div class="list">${state.recents.length?state.recents.slice(0,5).map(x=>`<div class="list-item">${x.label}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
     </section>`;
   document.querySelectorAll('[data-subject]').forEach(b=>b.onclick=()=>{
@@ -243,6 +357,12 @@ function renderHome(){
     state.unit=first?.canonical_unit_name||'';
     track('subject',subjectUiName(state.subject));
     mount('subject');
+  });
+  const cont=document.querySelector('#continue-last');
+  if(cont) cont.onclick=()=>openSavedUnit(state.lastOpened);
+  document.querySelectorAll('[data-bookmark-index]').forEach(b=>b.onclick=()=>{
+    const item=state.bookmarks[Number(b.dataset.bookmarkIndex)];
+    openSavedUnit(item);
   });
 }
 function renderSubject(){
@@ -326,9 +446,19 @@ function renderUnit(){
       <button class="back-btn" data-view="subject">← ${displayName}の単元一覧に戻る</button>
       <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><button data-view="subject">${displayName}</button><span>›</span><span>${state.unit}</span></div>
     </div>
-    <section class="subject-header card"><div><p class="eyebrow">小学校${state.grade}年 ＞ ${displayName}</p><h1>${state.unit}</h1>
-      <p><span class="review-chip">DB登録済・要公式確認</span> ${rec?.term?`${rec.term}学期`:'時期未設定'}</p></div>
-      <button id="fav" class="unit-card">☆ お気に入り</button></section>
+    <section class="subject-header card unit-detail-hero"><div><p class="eyebrow">単元詳細ページ ｜ 小学校${state.grade}年 ＞ ${displayName}</p><h1>${state.unit}</h1>
+      <p><span class="review-chip">DB登録済・要公式確認</span> ${rec?.term?`${rec.term}学期`:'時期未設定'}</p>
+      <div class="unit-page-nav">
+        <button data-anchor="lesson">45分授業案</button>
+        <button data-anchor="board">板書</button>
+        ${materialsForCurrentUnit().length?'<button data-anchor="materials">実在教材</button>':''}
+        <button data-anchor="activity">楽しい活動</button>
+        <button data-anchor="quiz">ミニテスト</button>
+      </div></div>
+      <div class="unit-detail-actions">
+        <button id="bookmark" class="bookmark-btn">${isBookmarked()?'🔖 しおり済み':'🔖 この単元をしおり保存'}</button>
+        <button id="fav" class="unit-card">☆ お気に入り</button>
+      </div></section>
     ${rec?`<section class="unit-db-meta card">
       <div><b>学習目標</b><span>${rec.learning_objective||'未設定'}</span></div>
       <div><b>キーワード</b><span>${rec.key_concepts||'未設定'}</span></div>
@@ -360,6 +490,42 @@ function renderUnit(){
             <button class="unit-card" id="board-large">板書を大きく見る</button>
           </div>
         </section>
+        ${materialsForCurrentUnit().length?`
+        <section id="materials" class="content card">
+          <div class="section-head">
+            <div>
+              <h2>🔗 この単元で使える実在教材</h2>
+              <div class="muted">授業準備に使いやすい教材・実践・指導案をまとめました。第三者サイトの画像やPDFは転載せず、外部リンクで紹介します。</div>
+            </div>
+          </div>
+
+          <div class="material-filter">
+            <button class="active" data-mat-filter="all">すべて</button>
+            ${[...new Set(materialsForCurrentUnit().map(m=>m.category))].map(c=>`<button data-mat-filter="${c}">${materialCategoryIcon(c)} ${c}</button>`).join('')}
+          </div>
+
+          <div id="material-grid" class="material-grid">
+            ${materialsForCurrentUnit().map(m=>`
+              <article class="material-card" data-material-category="${m.category}">
+                <div class="material-card-head">
+                  <span class="material-cat">${materialCategoryIcon(m.category)} ${m.category}</span>
+                  <span class="material-status ${m.status==='verified'?'verified':'review'}">${m.status==='verified'?'確認済':'要確認'}</span>
+                </div>
+                <h3>${m.title}</h3>
+                <p class="material-provider">${m.provider}</p>
+                <p>${m.description}</p>
+                <div class="material-scores">
+                  <span>品質 <b>${m.quality_score}/5</b></span>
+                  <span>時短 <b>${m.time_saving_score}/5</b></span>
+                  <span>見やすさ <b>${m.visual_score}/5</b></span>
+                  <span>楽しさ <b>${m.student_engagement_score}/5</b></span>
+                </div>
+                <div class="material-use"><b>おすすめ用途</b><span>${m.recommended_use}</span></div>
+                <a class="material-link" href="${m.url}" target="_blank" rel="noopener noreferrer">教材・実践を見る ↗</a>
+              </article>
+            `).join('')}
+          </div>
+        </section>`:''}
         <section id="research" class="content card"><h2>🔎 実践板書リサーチ</h2>
           <p>先生時短AIでは、公開されている優れた板書実践の<strong>構成・見せ方・授業の流れ</strong>を研究し、独自板書に反映します。第三者の板書画像は許諾なく転載しません。</p>
           <div class="research-grid">${boardResearchSources.map((r,i)=>`<article class="research-card"><span class="source-no">参考${i+1}</span><h3>${r.name}</h3><p class="muted">${r.teacher}</p><p>${r.note}</p><a href="${r.url}" target="_blank" rel="noopener noreferrer">公式・公開ページを見る ↗</a></article>`).join('')}</div>
@@ -383,7 +549,20 @@ function renderUnit(){
     track('boardTemplate',currentBoardTemplate().name);
     mount('unit');
   });
-  const boardLarge=document.querySelector('#board-large');
+  
+  document.querySelectorAll('[data-mat-filter]').forEach(btn=>{
+    btn.onclick=()=>{
+      document.querySelectorAll('[data-mat-filter]').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      const filter=btn.dataset.matFilter;
+      document.querySelectorAll('[data-material-category]').forEach(card=>{
+        card.style.display=(filter==='all'||card.dataset.materialCategory===filter)?'':'none';
+      });
+      track('materialFilter', filter);
+    };
+  });
+
+const boardLarge=document.querySelector('#board-large');
   if(boardLarge) boardLarge.onclick=()=>{
     const board=document.querySelector('#board .visual-board');
     if(board?.requestFullscreen) board.requestFullscreen();
@@ -393,6 +572,14 @@ function renderUnit(){
     const target=document.querySelector('#'+b.dataset.anchor);
     if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
   });
+  
+  const bm=document.querySelector('#bookmark');
+  if(bm) bm.onclick=()=>{
+    toggleBookmark();
+    bm.textContent=isBookmarked()?'🔖 しおり済み':'🔖 この単元をしおり保存';
+    track('bookmark',`${state.grade}年 ${subjectUiName(state.subject)} ${state.unit}`);
+  };
+
   document.querySelector('#fav').onclick=()=>{const lab=`小${state.grade} ${s.name}「${state.unit}」`;if(!state.favorites.includes(lab))state.favorites.unshift(lab);track('favorite',lab);mount('unit')};
   document.querySelector('#regen').onclick=()=>{track('quiz',`${s.name}ミニテスト`);alert('正式版では、教科・単元・レベルに応じてAIが別問題と生徒向け解説を生成します。')};
   btnView();
@@ -479,14 +666,25 @@ function supportIdeas(sub){
   }[sub];
 }
 function renderDesk(){
-  const top=Object.entries(state.usage).sort((a,b)=>b[1]-a[1]).slice(0,6);
   document.querySelector('#app').innerHTML=`
-    <section class="card panel"><p class="eyebrow">個人最適化</p><h1>マイ授業デスク</h1><p>固定レイアウトのまま、よく使う教科・機能・最近の単元だけを優先表示します。</p></section>
-    <section class="section three-col">
-      <div class="card panel"><h2>📌 よく使う</h2><div class="list">${top.length?top.map(x=>`<div class="list-item">${label(x[0])} <b>${x[1]}</b></div>`).join(''):'<div class="list-item muted">利用すると表示されます</div>'}</div></div>
-      <div class="card panel"><h2>⭐ お気に入り</h2><div class="list">${state.favorites.length?state.favorites.map(x=>`<div class="list-item">${x}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
-      <div class="card panel"><h2>🕘 最近使った</h2><div class="list">${state.recents.length?state.recents.slice(0,8).map(x=>`<div class="list-item">${x.label}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
+    <div class="nav-row"><button class="back-btn" data-view="home">← ホームに戻る</button></div>
+    <section class="card panel">
+      <div class="section-head"><div><h1>🔖 マイ授業デスク</h1><p class="muted">しおり保存した単元と、前回の続き。</p></div></div>
+      ${state.lastOpened?`<div class="continue-card compact"><div><span class="eyebrow">前回の続き</span><h3>${state.lastOpened.label}</h3></div><button id="desk-continue">開く →</button></div>`:''}
+      <h2>しおり一覧</h2>
+      <div class="bookmark-grid">${state.bookmarks.length?state.bookmarks.map((b,i)=>`
+        <article class="bookmark-card">
+          <span>小${b.grade} ${subjectUiName(b.subject,b.grade)}</span>
+          <h3>${b.unit}</h3>
+          <div><button data-open-bookmark="${i}">開く</button><button data-remove-bookmark="${i}" class="ghost">削除</button></div>
+        </article>`).join(''):'<p class="muted">まだしおりはありません。</p>'}</div>
     </section>`;
+  const c=document.querySelector('#desk-continue');
+  if(c) c.onclick=()=>openSavedUnit(state.lastOpened);
+  document.querySelectorAll('[data-open-bookmark]').forEach(b=>b.onclick=()=>openSavedUnit(state.bookmarks[Number(b.dataset.openBookmark)]));
+  document.querySelectorAll('[data-remove-bookmark]').forEach(b=>b.onclick=()=>{
+    state.bookmarks.splice(Number(b.dataset.removeBookmark),1); save(); mount('desk');
+  });
 }
 function renderAnalytics(){
   const entries=Object.entries(state.usage).sort((a,b)=>b[1]-a[1]); const total=entries.reduce((a,b)=>a+b[1],0)||1;
@@ -507,5 +705,6 @@ function matrixHtml(){
   ];
   return `<div style="overflow:auto"><table class="matrix"><thead><tr><th>機能</th><th>国語</th><th>算数</th><th>理科</th><th>社会</th><th>英語</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
-function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',favorite:'お気に入り',quiz:'ミニテスト',boardTemplate:'板書テンプレート'}[k]||k)}
-mount('home');
+function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',favorite:'お気に入り',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'しおり'}[k]||k)}
+const initialView=applyUrlState()||'home';
+mount(initialView);
