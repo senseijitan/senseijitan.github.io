@@ -138,6 +138,16 @@ function materialsForCurrentUnit(){
     m.canonical_unit_name===state.unit
   );
 }
+
+function supportPict(){
+  return `<span class="icon-pict icon-support" aria-hidden="true">
+    <svg viewBox="0 0 24 24" role="img" focusable="false">
+      <circle cx="12" cy="5" r="2.6"></circle>
+      <path d="M12 8.5c-2.2 0-4 1.8-4 4v1.6H6.3c-.7 0-1.2.5-1.2 1.2v.2c0 .7.5 1.2 1.2 1.2h1.8v3.8c0 .8.6 1.4 1.4 1.4h.6c.8 0 1.4-.6 1.4-1.4v-3.6h1.1v3.6c0 .8.6 1.4 1.4 1.4h.6c.8 0 1.4-.6 1.4-1.4v-3.8h1.8c.7 0 1.2-.5 1.2-1.2v-.2c0-.7-.5-1.2-1.2-1.2H16v-1.6c0-2.2-1.8-4-4-4Z"></path>
+    </svg>
+  </span>`;
+}
+
 function materialCategoryIcon(cat){
   if(cat.includes('プリント')) return '📝';
   if(cat.includes('板書')) return '🧑‍🏫';
@@ -474,7 +484,7 @@ function renderUnit(){
     <section class="unit-layout">
       <aside class="side card">
         <button data-anchor="lesson">📚 授業</button><button data-anchor="board">🧑‍🏫 板書</button><button data-anchor="visual">🖼 図・挿絵</button>
-        <button data-anchor="activity">🎮 活動</button><button data-anchor="quiz">📝 ミニテスト</button><button data-anchor="support">😵 つまずき</button>
+        <button data-anchor="activity">🎮 活動</button><button data-anchor="quiz">📝 ミニテスト</button><button data-anchor="support">${supportPict()} つまずき</button>
       </aside>
       <div class="stack">
         <section id="lesson" class="content card"><h2>📚 45分授業案 <span class="muted">・${lv.label}</span></h2>
@@ -539,7 +549,7 @@ function renderUnit(){
         <section id="quiz" class="content card"><h2>📝 ミニテスト</h2>
           <div class="mini"><b>Q. ${d.quiz[0][0]}</b><div class="answer"><b>答え：${d.quiz[0][1]}</b><p>${adapt(d.quiz[0][2])}</p></div></div>
           <button id="regen" class="unit-card">別の問題を作る（デモ）</button></section>
-        <section id="support" class="content card"><h2>😵 つまずき対応</h2>
+        <section id="support" class="content card"><h2>${supportPict()} つまずき対応</h2>
           <div class="lesson-grid">${supportIdeas(state.subject).map(x=>`<div class="mini"><b>${x[0]}</b><div>${adapt(x[1])}</div></div>`).join('')}</div></section>
       </div>
     </section>`;
