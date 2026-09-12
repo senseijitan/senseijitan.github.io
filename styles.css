@@ -342,3 +342,38 @@ body{background:radial-gradient(circle at 10% 0%,rgba(47,124,246,.06),transparen
 .bottom-nav{background:rgba(255,255,255,.96)!important;backdrop-filter:blur(12px);border-top:1px solid var(--edu-line)!important}.bottom-nav button{color:var(--edu-muted)!important}.bottom-nav button:hover{color:var(--edu-primary)!important}
 @media(max-width:900px){.unit-page-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){body{font-size:15px}.topbar{padding:10px 14px!important}.topnav{display:none!important}.app{padding:14px!important}.card{border-radius:16px!important}.hero{padding:20px!important}.content.card{padding:16px!important}.subject-grid{grid-template-columns:1fr 1fr!important}.subject-card{min-height:145px;padding:16px!important}.unit-page-nav{grid-template-columns:1fr 1fr}.grade-row{overflow-x:auto}.subject-tabs{overflow-x:auto;flex-wrap:nowrap!important}}
+
+/* v9.1 visual support pictogram */
+.icon-visual{width:1.12em;height:1.12em}
+.icon-visual svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block}
+#visual h2 .icon-visual,[data-anchor="visual"] .icon-visual{margin-right:.28em}
+
+/* v9.2 unified pictograms */
+.icon-generic{width:1.08em;height:1.08em}
+.icon-generic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block}
+.visual-chip b .icon-generic,.section-head h1 .icon-generic,.section-head h2 .icon-generic,.card.panel h2 .icon-generic,[data-anchor] .icon-generic,.bookmark-btn .icon-generic{margin-right:.32em}
+.material-cat .icon-generic,.subject-badge .icon-generic{margin-right:.24em}
+
+/* v9.3 unified subject pictograms */
+.subject-pict{display:inline-flex;align-items:center;justify-content:center;color:currentColor}
+.subject-pict svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block}
+.subject-pict.lg{width:1.6em;height:1.6em}
+.subject-tab .subject-pict{margin-right:.34em;vertical-align:-0.14em}
+.subject-badge .subject-pict{margin-right:.3em}
+.subject-icon .subject-pict{width:1.7em;height:1.7em}
+.subject-card.jp .subject-pict{color:#d66b1f}
+.subject-card.math .subject-pict{color:#2f7cf6}
+.subject-card.science .subject-pict{color:#2f9e72}
+.subject-card.social .subject-pict{color:#218da8}
+.subject-card.english .subject-pict{color:#7359c7}
+.subject-tab.jp .subject-pict{color:#d66b1f}
+.subject-tab.math .subject-pict{color:#2f7cf6}
+.subject-tab.science .subject-pict{color:#2f9e72}
+.subject-tab.social .subject-pict{color:#218da8}
+.subject-tab.english .subject-pict{color:#7359c7}
+.subject-tab.active .subject-pict{color:currentColor}
+.subject-badge.jp .subject-pict{color:#d66b1f}
+.subject-badge.math .subject-pict{color:#2f7cf6}
+.subject-badge.science .subject-pict{color:#2f9e72}
+.subject-badge.social .subject-pict{color:#218da8}
+.subject-badge.english .subject-pict{color:#7359c7}

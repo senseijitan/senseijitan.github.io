@@ -139,6 +139,55 @@ function materialsForCurrentUnit(){
   );
 }
 
+
+function visualPict(){
+  return `<span class="icon-pict icon-visual" aria-hidden="true">
+    <svg viewBox="0 0 24 24" role="img" focusable="false">
+      <rect x="3.5" y="5" width="17" height="14" rx="2.2" ry="2.2"></rect>
+      <circle cx="9" cy="10" r="1.8"></circle>
+      <path d="M6.5 16l3.2-3.4a1 1 0 0 1 1.45 0l2.1 2.2 1.9-1.9a1 1 0 0 1 1.4 0L19 15.3"></path>
+    </svg>
+  </span>`;
+}
+
+
+function lessonPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><rect x="5" y="3.8" width="14" height="16.4" rx="1.8" ry="1.8"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg></span>`;
+}
+function boardPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><rect x="3.5" y="4" width="17" height="11.5" rx="1.5" ry="1.5"></rect><path d="M8 20h8M12 15.5V20"></path></svg></span>`;
+}
+function activityPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><circle cx="8" cy="12" r="2.5"></circle><circle cx="16" cy="12" r="2.5"></circle><path d="M10.7 12h2.6M8 9.5l.8-2M16 9.5l-.8-2"></path></svg></span>`;
+}
+function quizPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><rect x="6" y="4" width="12" height="16" rx="1.8" ry="1.8"></rect><path d="M9 9l1.5 1.5L13 8M9 14h6"></path></svg></span>`;
+}
+function bookmarkPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M7 4.5h10v15l-5-2.9-5 2.9z"></path></svg></span>`;
+}
+function recentPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><circle cx="12" cy="12" r="8"></circle><path d="M12 7.5v5l3 1.7"></path></svg></span>`;
+}
+function materialPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M6.5 4.5h8l3 3V19.5h-11z"></path><path d="M14.5 4.5v3h3M9 12h6M9 15h6"></path></svg></span>`;
+}
+
+function subjectPict(key, cls=''){
+  const icons={
+    jp:'<svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H12v18H7.5A2.5 2.5 0 0 0 5 23.5z"></path><path d="M19 5.5A2.5 2.5 0 0 0 16.5 3H12v18h4.5A2.5 2.5 0 0 1 19 23.5z"></path><path d="M8 8.5h2.2M8 12h2.2"></path></svg>',
+    math:'<svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M7 6h4M9 4v4M14.5 6h4M14.5 17h4M15 12.5l3 3M18 12.5l-3 3"></path><circle cx="9" cy="17" r="1.1"></circle><circle cx="9" cy="13.5" r="1.1"></circle></svg>',
+    science:'<svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M9 3h6M11 3v5l-5 8.5A2.2 2.2 0 0 0 7.9 20h8.2a2.2 2.2 0 0 0 1.9-3.5L13 8V3"></path><path d="M8.3 14.5h7.4"></path><circle cx="10" cy="11" r=".8"></circle><circle cx="13.8" cy="13" r=".8"></circle></svg>',
+    social:'<svg viewBox="0 0 24 24" role="img" focusable="false"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16M12 4c2.2 2.2 3.4 5 3.4 8s-1.2 5.8-3.4 8M12 4c-2.2 2.2-3.4 5-3.4 8s1.2 5.8 3.4 8"></path></svg>',
+    english:'<svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M5 5h14v10H9l-4 4v-4H5z"></path><path d="M9 9h6M9 12h4"></path><path d="M15.5 18.5h4"></path></svg>'
+  };
+  return `<span class="icon-pict icon-generic subject-pict ${key} ${cls}" aria-hidden="true">${icons[key]||icons.jp}</span>`;
+}
+
+function bookPict(){
+  return `<span class="icon-pict icon-generic" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M4.5 5.5A2.5 2.5 0 0 1 7 3h5v17H7a2.5 2.5 0 0 0-2.5 2.5z"></path><path d="M19.5 5.5A2.5 2.5 0 0 0 17 3h-5v17h5a2.5 2.5 0 0 1 2.5 2.5z"></path></svg></span>`;
+}
+
 function supportPict(){
   return `<span class="icon-pict icon-support" aria-hidden="true">
     <svg viewBox="0 0 24 24" role="img" focusable="false">
@@ -149,14 +198,14 @@ function supportPict(){
 }
 
 function materialCategoryIcon(cat){
-  if(cat.includes('プリント')) return '📝';
-  if(cat.includes('板書')) return '🧑‍🏫';
-  if(cat.includes('指導案')) return '📘';
-  if(cat.includes('授業実践')) return '🎓';
-  if(cat.includes('ICT')) return '💻';
-  if(cat.includes('公的')) return '🏛️';
-  if(cat.includes('教科書')) return '📚';
-  return '🔗';
+  if(cat.includes('プリント')) return quizPict();
+  if(cat.includes('板書')) return boardPict();
+  if(cat.includes('指導案')) return lessonPict();
+  if(cat.includes('授業実践')) return activityPict();
+  if(cat.includes('ICT')) return visualPict();
+  if(cat.includes('公的')) return materialPict();
+  if(cat.includes('教科書')) return bookPict();
+  return materialPict();
 }
 
 function aliasesForUnit(unitId){
@@ -282,7 +331,7 @@ function renderSubjectTabs(){
         ${Object.entries(subjects).map(([k,s])=>`
           <button class="subject-tab ${s.class} ${state.subject===k?'active':''} ${!isSubjectAvailable(k)?'disabled':''}"
                   data-top-subject="${k}" ${!isSubjectAvailable(k)?'disabled':''}>
-            ${s.icon} ${subjectUiName(k)}
+            ${subjectPict(k)} ${subjectUiName(k)}
           </button>`).join('')}
       </div>
     </div>`;
@@ -330,7 +379,7 @@ function renderHome(){
     const available=isSubjectAvailable(k);
     const count=unitsFor(state.grade,k).length;
     return `<button class="subject-card ${s.class} ${available?'':'disabled-card'}" data-subject="${k}" ${available?'':'disabled'}>
-      <span class="subject-icon">${s.icon}</span><h3>${subjectUiName(k)}</h3>
+      <span class="subject-icon">${subjectPict(k, "lg")}</span><h3>${subjectUiName(k)}</h3>
       <p>${available?s.desc:'この学年では対象外です'}</p>
       <small>${available?`${count}単元を登録`:'—'}</small>
     </button>`;
@@ -346,18 +395,18 @@ function renderHome(){
       <p>学年 → 教科 → 単元を選択。現在 <b>${UNIT_DB.length}単元</b> を登録しています。</p>
       <div class="db-warning">⚠ 現在の単元DBは調査データ取り込み版です。全件「公式確認待ち（needs_review）」として管理しています。</div></div>
       <div class="hero-visual">
-        <div class="visual-chip"><b>📚 ${UNIT_DB.length}単元</b><span>1〜6年を収録</span></div>
-        <div class="visual-chip"><b>🔖 ${state.bookmarks.length}件</b><span>しおり保存</span></div>
-        <div class="visual-chip"><b>🧑‍🏫 板書</b><span>5テンプレート</span></div>
-        <div class="visual-chip"><b>📝 テスト</b><span>答え＋解説</span></div>
+        <div class="visual-chip"><b>${bookPict()} ${UNIT_DB.length}単元</b><span>1〜6年を収録</span></div>
+        <div class="visual-chip"><b>${bookmarkPict()} ${state.bookmarks.length}件</b><span>しおり保存</span></div>
+        <div class="visual-chip"><b>${boardPict()} 板書</b><span>5テンプレート</span></div>
+        <div class="visual-chip"><b>${quizPict()} テスト</b><span>答え＋解説</span></div>
       </div>
     </section>
     <section class="section"><div class="section-head"><h2>教科を選ぶ</h2><span class="muted">小学校${state.grade}年</span></div><div class="subject-grid">${subjectCards}</div></section>
     <section class="section two-col">
-      <div class="card panel"><h2>🔖 しおり</h2>
+      <div class="card panel"><h2>${bookmarkPict()} しおり</h2>
         <div class="list">${state.bookmarks.length?state.bookmarks.slice(0,5).map((b,i)=>`<button class="list-item bookmark-home" data-bookmark-index="${i}">${b.label}</button>`).join(''):'<div class="list-item muted">まだありません</div>'}</div>
       </div>
-      <div class="card panel"><h2>🕘 最近使った</h2><div class="list">${state.recents.length?state.recents.slice(0,5).map(x=>`<div class="list-item">${x.label}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
+      <div class="card panel"><h2>${recentPict()} 最近使った</h2><div class="list">${state.recents.length?state.recents.slice(0,5).map(x=>`<div class="list-item">${x.label}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
     </section>`;
   document.querySelectorAll('[data-subject]').forEach(b=>b.onclick=()=>{
     if(b.disabled) return;
@@ -385,7 +434,7 @@ function renderSubject(){
     <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><span>小学校${state.grade}年</span><span>›</span><span>${displayName}</span></div>
   </div>
   <section class="subject-header card">
-    <div><span class="subject-badge ${s.class}">${s.icon} ${displayName}</span><h1>小${state.grade} ${displayName}の授業準備</h1>
+    <div><span class="subject-badge ${s.class}">${subjectPict(state.subject)} ${displayName}</span><h1>小${state.grade} ${displayName}の授業準備</h1>
     <p>${s.desc}を中心に、${s.focus.join('・')}をまとめます。</p></div>
     <div class="figure-card"><b>単元DB</b><div class="figure">${list.length}<br><small>登録単元</small></div></div>
   </section>
@@ -466,7 +515,7 @@ function renderUnit(){
         <button data-anchor="quiz">ミニテスト</button>
       </div></div>
       <div class="unit-detail-actions">
-        <button id="bookmark" class="bookmark-btn">${isBookmarked()?'🔖 しおり済み':'🔖 この単元をしおり保存'}</button>
+        <button id="bookmark" class="bookmark-btn">${isBookmarked()?'${bookmarkPict()} しおり済み':'${bookmarkPict()} この単元をしおり保存'}</button>
         <button id="fav" class="unit-card">☆ お気に入り</button>
       </div></section>
     ${rec?`<section class="unit-db-meta card">
@@ -483,15 +532,15 @@ function renderUnit(){
     </section>
     <section class="unit-layout">
       <aside class="side card">
-        <button data-anchor="lesson">📚 授業</button><button data-anchor="board">🧑‍🏫 板書</button><button data-anchor="visual">🖼 図・挿絵</button>
-        <button data-anchor="activity">🎮 活動</button><button data-anchor="quiz">📝 ミニテスト</button><button data-anchor="support">${supportPict()} つまずき</button>
+        <button data-anchor="lesson">${lessonPict()} 授業</button><button data-anchor="board">${boardPict()} 板書</button><button data-anchor="visual">${visualPict()} 図・挿絵</button>
+        <button data-anchor="activity">${activityPict()} 活動</button><button data-anchor="quiz">${quizPict()} ミニテスト</button><button data-anchor="support">${supportPict()} つまずき</button>
       </aside>
       <div class="stack">
-        <section id="lesson" class="content card"><h2>📚 45分授業案 <span class="muted">・${lv.label}</span></h2>
+        <section id="lesson" class="content card"><h2>${lessonPict()} 45分授業案 <span class="muted">・${lv.label}</span></h2>
           <div class="mini"><b>ねらい</b><div>${adapt(d.goal)}</div></div><div class="mini"><b>楽しい導入</b><div>${adapt(d.hook)}</div></div>
           <div class="timeline">${d.timeline.map(x=>`<div class="timeline-row"><b>${x[0]}</b><span>${adapt(x[1])}</span></div>`).join('')}</div></section>
         <section id="board" class="content card">
-          <div class="section-head"><div><h2>🧑‍🏫 板書サンプル</h2><div class="muted">人気の実践板書に共通する構成を分析した「先生時短AI独自板書」です。元画像の転載はしません。</div></div></div>
+          <div class="section-head"><div><h2>${boardPict()} 板書サンプル</h2><div class="muted">人気の実践板書に共通する構成を分析した「先生時短AI独自板書」です。元画像の転載はしません。</div></div></div>
           <div class="board-template-tabs">${boardTemplates.map(t=>`<button data-board-template="${t.id}" class="${state.boardTemplate===t.id?'active':''}">${t.name}</button>`).join('')}</div>
           <div class="board-template-note"><b>${currentBoardTemplate().name}</b>：${currentBoardTemplate().desc}</div>
           ${safeBoardHtml(state.boardTemplate,d)}
@@ -504,7 +553,7 @@ function renderUnit(){
         <section id="materials" class="content card">
           <div class="section-head">
             <div>
-              <h2>🔗 この単元で使える実在教材</h2>
+              <h2>${materialPict()} この単元で使える実在教材</h2>
               <div class="muted">授業準備に使いやすい教材・実践・指導案をまとめました。第三者サイトの画像やPDFは転載せず、外部リンクで紹介します。</div>
             </div>
           </div>
@@ -542,11 +591,11 @@ function renderUnit(){
           <h3 style="margin-top:22px">先生時短AI 板書テンプレート5種</h3>
           <div class="lesson-grid">${boardTemplates.map(t=>`<div class="mini"><b>${t.name}</b><div>${t.short}</div><div class="muted">おすすめ：${t.best}</div></div>`).join('')}</div>
         </section>
-        <section id="visual" class="content card"><h2>🖼 図・挿絵・視覚支援</h2>
+        <section id="visual" class="content card"><h2>${visualPict()} 図・挿絵・視覚支援</h2>
           <div class="lesson-grid">${visualIdeas(state.subject).map(x=>`<div class="figure-card"><div class="figure">${x[0]}</div><b>${x[1]}</b><div class="muted">${x[2]}</div></div>`).join('')}</div></section>
-        <section id="activity" class="content card"><h2>🎮 楽しい活動 / あと5分</h2>
+        <section id="activity" class="content card"><h2>${activityPict()} 楽しい活動 / あと5分</h2>
           <div class="lesson-grid">${activities(state.subject).map(x=>`<div class="mini"><b>${x[0]}</b><div>${adapt(x[1])}</div></div>`).join('')}</div></section>
-        <section id="quiz" class="content card"><h2>📝 ミニテスト</h2>
+        <section id="quiz" class="content card"><h2>${quizPict()} ミニテスト</h2>
           <div class="mini"><b>Q. ${d.quiz[0][0]}</b><div class="answer"><b>答え：${d.quiz[0][1]}</b><p>${adapt(d.quiz[0][2])}</p></div></div>
           <button id="regen" class="unit-card">別の問題を作る（デモ）</button></section>
         <section id="support" class="content card"><h2>${supportPict()} つまずき対応</h2>
@@ -586,7 +635,7 @@ const boardLarge=document.querySelector('#board-large');
   const bm=document.querySelector('#bookmark');
   if(bm) bm.onclick=()=>{
     toggleBookmark();
-    bm.textContent=isBookmarked()?'🔖 しおり済み':'🔖 この単元をしおり保存';
+    bm.textContent=isBookmarked()?'${bookmarkPict()} しおり済み':'${bookmarkPict()} この単元をしおり保存';
     track('bookmark',`${state.grade}年 ${subjectUiName(state.subject)} ${state.unit}`);
   };
 
@@ -679,7 +728,7 @@ function renderDesk(){
   document.querySelector('#app').innerHTML=`
     <div class="nav-row"><button class="back-btn" data-view="home">← ホームに戻る</button></div>
     <section class="card panel">
-      <div class="section-head"><div><h1>🔖 マイ授業デスク</h1><p class="muted">しおり保存した単元と、前回の続き。</p></div></div>
+      <div class="section-head"><div><h1>${bookmarkPict()} マイ授業デスク</h1><p class="muted">しおり保存した単元と、前回の続き。</p></div></div>
       ${state.lastOpened?`<div class="continue-card compact"><div><span class="eyebrow">前回の続き</span><h3>${state.lastOpened.label}</h3></div><button id="desk-continue">開く →</button></div>`:''}
       <h2>しおり一覧</h2>
       <div class="bookmark-grid">${state.bookmarks.length?state.bookmarks.map((b,i)=>`
