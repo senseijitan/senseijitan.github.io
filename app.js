@@ -563,7 +563,7 @@ function renderUnit(){
         <button data-anchor="quiz">ミニテスト</button>
       </div></div>
       <div class="unit-detail-actions">
-        <button id="bookmark" class="bookmark-btn">${isBookmarked()?`${bookmarkPict()} しおり済み`:`${bookmarkPict()} この単元をしおり保存`}</button>
+        <button id="bookmark" class="bookmark-btn">${isBookmarked()?'しおり済み':'この単元をしおり保存'}</button>
         <button class="bookmark-list-open compact-bookmark-list" data-view="bookmarks">${bookmarkPict()} ${state.grade}年のしおり一覧</button>
       </div></section>
     ${rec?`<section class="unit-db-meta card">
@@ -683,7 +683,7 @@ const boardLarge=document.querySelector('#board-large');
   const bm=document.querySelector('#bookmark');
   if(bm) bm.onclick=()=>{
     toggleBookmark();
-    bm.innerHTML=isBookmarked()?`${bookmarkPict()} しおり済み`:`${bookmarkPict()} この単元をしおり保存`;
+    bm.textContent=isBookmarked()?'しおり済み':'この単元をしおり保存';
     track('bookmark',`${state.grade}年 ${subjectUiName(state.subject)} ${state.unit}`);
   };
   document.querySelectorAll('.bookmark-list-open[data-view="bookmarks"]').forEach(b=>b.onclick=()=>mount('bookmarks'));
