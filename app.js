@@ -48,6 +48,12 @@ function bookmarkKey(){
 function isBookmarked(){
   return state.bookmarks.some(b=>b.key===bookmarkKey());
 }
+function bookmarksForGrade(grade=state.grade){
+  return state.bookmarks.filter(b=>Number(b.grade)===Number(grade));
+}
+function bookmarkCountForGrade(grade=state.grade){
+  return bookmarksForGrade(grade).length;
+}
 function toggleBookmark(){
   const key=bookmarkKey();
   if(isBookmarked()){
@@ -316,7 +322,16 @@ function track(feature,label){
   state.usage[feature]=(state.usage[feature]||0)+1; state.total++;
   state.recents.unshift({label,ts:Date.now()}); state.recents=state.recents.slice(0,16); save();
 }
-function btnView(){document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>mount(b.dataset.view))}
+function btnView(){
+  document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{
+    const view=b.dataset.view;
+    if(view==='home') clearUnitUrl();
+    const root=document.querySelector('#app');
+    if(root) root.innerHTML='';
+    mount(view);
+    window.scrollTo({top:0,left:0,behavior:'instant'});
+  });
+}
 function renderSubjectTabs(){
   const wrap=document.querySelector('#global-tabs');
   if(!wrap) return;
@@ -333,6 +348,12 @@ function renderSubjectTabs(){
                   data-top-subject="${k}" ${!isSubjectAvailable(k)?'disabled':''}>
             ${subjectPict(k)} ${subjectUiName(k)}
           </button>`).join('')}
+      </div>
+      <div class="grade-bookmark-row">
+        <button class="grade-bookmark-btn" data-view="bookmarks">
+          ${bookmarkPict()} <span>${state.grade}年のしおり</span>
+          <strong>${bookmarkCountForGrade(state.grade)}件</strong>
+        </button>
       </div>
     </div>`;
   document.querySelectorAll('[data-grade]').forEach(b=>{
@@ -357,6 +378,8 @@ function renderSubjectTabs(){
       mount('subject');
     };
   });
+  const gradeBookmarkBtn=document.querySelector('.grade-bookmark-btn');
+  if(gradeBookmarkBtn) gradeBookmarkBtn.onclick=()=>mount('bookmarks');
 }
 function mount(view='home'){
   ensureStateUnit();
@@ -371,6 +394,7 @@ function mount(view='home'){
   else if(view==='subject') renderSubject();
   else if(view==='unit') renderUnit();
   else if(view==='desk') renderDesk();
+  else if(view==='bookmarks') renderBookmarks();
   else if(view==='analytics') renderAnalytics();
   wireCommon(view);
 }
@@ -403,8 +427,9 @@ function renderHome(){
     </section>
     <section class="section"><div class="section-head"><h2>教科を選ぶ</h2><span class="muted">小学校${state.grade}年</span></div><div class="subject-grid">${subjectCards}</div></section>
     <section class="section two-col">
-      <div class="card panel"><h2>${bookmarkPict()} しおり</h2>
-        <div class="list">${state.bookmarks.length?state.bookmarks.slice(0,5).map((b,i)=>`<button class="list-item bookmark-home" data-bookmark-index="${i}">${b.label}</button>`).join(''):'<div class="list-item muted">まだありません</div>'}</div>
+      <div class="card panel"><h2>${bookmarkPict()} ${state.grade}年のしおり</h2>
+        <div class="list">${bookmarksForGrade(state.grade).length?bookmarksForGrade(state.grade).slice(0,5).map((b,i)=>`<button class="list-item bookmark-home" data-grade-bookmark-index="${i}">${subjectPict(b.subject)} ${subjectUiName(b.subject,b.grade)}「${b.unit}」</button>`).join(''):'<div class="list-item muted">この学年のしおりはまだありません</div>'}</div>
+        <button class="bookmark-list-open" data-view="bookmarks">${bookmarkPict()} しおり一覧を見る</button>
       </div>
       <div class="card panel"><h2>${recentPict()} 最近使った</h2><div class="list">${state.recents.length?state.recents.slice(0,5).map(x=>`<div class="list-item">${x.label}</div>`).join(''):'<div class="list-item muted">まだありません</div>'}</div></div>
     </section>`;
@@ -419,10 +444,11 @@ function renderHome(){
   });
   const cont=document.querySelector('#continue-last');
   if(cont) cont.onclick=()=>openSavedUnit(state.lastOpened);
-  document.querySelectorAll('[data-bookmark-index]').forEach(b=>b.onclick=()=>{
-    const item=state.bookmarks[Number(b.dataset.bookmarkIndex)];
-    openSavedUnit(item);
+  document.querySelectorAll('[data-grade-bookmark-index]').forEach(b=>b.onclick=()=>{
+    const items=bookmarksForGrade(state.grade);
+    openSavedUnit(items[Number(b.dataset.gradeBookmarkIndex)]);
   });
+  document.querySelectorAll('.bookmark-list-open[data-view="bookmarks"]').forEach(b=>b.onclick=()=>mount('bookmarks'));
 }
 function renderSubject(){
   const s=subjects[state.subject];
@@ -515,8 +541,8 @@ function renderUnit(){
         <button data-anchor="quiz">ミニテスト</button>
       </div></div>
       <div class="unit-detail-actions">
-        <button id="bookmark" class="bookmark-btn">${isBookmarked()?'${bookmarkPict()} しおり済み':'${bookmarkPict()} この単元をしおり保存'}</button>
-        <button id="fav" class="unit-card">☆ お気に入り</button>
+        <button id="bookmark" class="bookmark-btn">${isBookmarked()?`${bookmarkPict()} しおり済み`:`${bookmarkPict()} この単元をしおり保存`}</button>
+        <button class="bookmark-list-open compact-bookmark-list" data-view="bookmarks">${bookmarkPict()} ${state.grade}年のしおり一覧</button>
       </div></section>
     ${rec?`<section class="unit-db-meta card">
       <div><b>学習目標</b><span>${rec.learning_objective||'未設定'}</span></div>
@@ -635,11 +661,10 @@ const boardLarge=document.querySelector('#board-large');
   const bm=document.querySelector('#bookmark');
   if(bm) bm.onclick=()=>{
     toggleBookmark();
-    bm.textContent=isBookmarked()?'${bookmarkPict()} しおり済み':'${bookmarkPict()} この単元をしおり保存';
+    bm.innerHTML=isBookmarked()?`${bookmarkPict()} しおり済み`:`${bookmarkPict()} この単元をしおり保存`;
     track('bookmark',`${state.grade}年 ${subjectUiName(state.subject)} ${state.unit}`);
   };
-
-  document.querySelector('#fav').onclick=()=>{const lab=`小${state.grade} ${s.name}「${state.unit}」`;if(!state.favorites.includes(lab))state.favorites.unshift(lab);track('favorite',lab);mount('unit')};
+  document.querySelectorAll('.bookmark-list-open[data-view="bookmarks"]').forEach(b=>b.onclick=()=>mount('bookmarks'));
   document.querySelector('#regen').onclick=()=>{track('quiz',`${s.name}ミニテスト`);alert('正式版では、教科・単元・レベルに応じてAIが別問題と生徒向け解説を生成します。')};
   btnView();
 }
@@ -724,32 +749,96 @@ function supportIdeas(sub){
     english:[['発話が不安','モデル文を見ながら選択式で話す。'],['単語が出ない','絵カードから選んで文に入れる。']]
   }[sub];
 }
+
+function renderBookmarks(){
+  const items=bookmarksForGrade(state.grade);
+  const groups=Object.entries(subjects).map(([key,s])=>{
+    const subjectItems=items.filter(b=>b.subject===key);
+    if(!isSubjectAvailable(key,state.grade)) return '';
+    return `
+      <section class="bookmark-subject-group card">
+        <div class="bookmark-subject-head">
+          <div class="bookmark-subject-title">${subjectPict(key,'lg')}<div><b>${subjectUiName(key,state.grade)}</b><span>${subjectItems.length}件</span></div></div>
+        </div>
+        <div class="bookmark-shortcut-grid">
+          ${subjectItems.length?subjectItems.map((b,i)=>{
+            const globalIndex=state.bookmarks.findIndex(x=>x.key===b.key);
+            return `<article class="bookmark-shortcut">
+              <div><span class="term-chip">小${b.grade}</span><h3>${b.unit}</h3></div>
+              <div class="bookmark-shortcut-actions">
+                <button data-open-bookmark-key="${b.key}">この単元を開く</button>
+                <button data-remove-bookmark-global="${globalIndex}" class="ghost">削除</button>
+              </div>
+            </article>`;
+          }).join(''):'<p class="bookmark-empty muted">この教科のしおりはありません。</p>'}
+        </div>
+      </section>`;
+  }).join('');
+
+  document.querySelector('#app').innerHTML=`
+    <div class="nav-row">
+      <button class="back-btn" data-view="subject">← ${subjectUiName(state.subject)}の単元一覧に戻る</button>
+      <div class="breadcrumb"><button data-view="home">ホーム</button><span>›</span><span>${state.grade}年のしおり</span></div>
+    </div>
+    <section class="bookmark-page-hero card">
+      <div>
+        <p class="eyebrow">${bookmarkPict()} 学年別しおり</p>
+        <h1>小学校${state.grade}年のしおり</h1>
+        <p>教科ごとに保存した単元をまとめています。ボタンから単元詳細へすぐ移動できます。</p>
+      </div>
+      <div class="bookmark-count-large"><b>${items.length}</b><span>保存単元</span></div>
+    </section>
+    <section class="bookmark-grade-switch card">
+      ${grades.map(g=>`<button data-bookmark-grade="${g}" class="${state.grade===g?'active':''}">${g}年 <span>${bookmarkCountForGrade(g)}</span></button>`).join('')}
+    </section>
+    <div class="bookmark-subject-groups">${groups}</div>`;
+
+  document.querySelectorAll('[data-bookmark-grade]').forEach(b=>b.onclick=()=>{
+    state.grade=Number(b.dataset.bookmarkGrade);
+    if(!isSubjectAvailable(state.subject,state.grade)) state.subject='jp';
+    save();
+    mount('bookmarks');
+  });
+  document.querySelectorAll('[data-open-bookmark-key]').forEach(b=>b.onclick=()=>{
+    const item=state.bookmarks.find(x=>x.key===b.dataset.openBookmarkKey);
+    openSavedUnit(item);
+  });
+  document.querySelectorAll('[data-remove-bookmark-global]').forEach(b=>b.onclick=()=>{
+    const i=Number(b.dataset.removeBookmarkGlobal);
+    if(i>=0){
+      state.bookmarks.splice(i,1);
+      save();
+      mount('bookmarks');
+    }
+  });
+  btnView();
+}
+
 function renderDesk(){
   document.querySelector('#app').innerHTML=`
     <div class="nav-row"><button class="back-btn" data-view="home">← ホームに戻る</button></div>
     <section class="card panel">
-      <div class="section-head"><div><h1>${bookmarkPict()} マイ授業デスク</h1><p class="muted">しおり保存した単元と、前回の続き。</p></div></div>
+      <div class="section-head"><div><h1>${bookmarkPict()} マイ授業デスク</h1><p class="muted">前回の続きと、学年別しおりへすぐ移動できます。</p></div></div>
       ${state.lastOpened?`<div class="continue-card compact"><div><span class="eyebrow">前回の続き</span><h3>${state.lastOpened.label}</h3></div><button id="desk-continue">開く →</button></div>`:''}
-      <h2>しおり一覧</h2>
-      <div class="bookmark-grid">${state.bookmarks.length?state.bookmarks.map((b,i)=>`
-        <article class="bookmark-card">
-          <span>小${b.grade} ${subjectUiName(b.subject,b.grade)}</span>
-          <h3>${b.unit}</h3>
-          <div><button data-open-bookmark="${i}">開く</button><button data-remove-bookmark="${i}" class="ghost">削除</button></div>
-        </article>`).join(''):'<p class="muted">まだしおりはありません。</p>'}</div>
+      <div class="desk-grade-bookmarks">
+        ${grades.map(g=>`<button data-desk-grade="${g}" class="${state.grade===g?'active':''}">${bookmarkPict()} ${g}年のしおり <b>${bookmarkCountForGrade(g)}</b></button>`).join('')}
+      </div>
     </section>`;
   const c=document.querySelector('#desk-continue');
   if(c) c.onclick=()=>openSavedUnit(state.lastOpened);
-  document.querySelectorAll('[data-open-bookmark]').forEach(b=>b.onclick=()=>openSavedUnit(state.bookmarks[Number(b.dataset.openBookmark)]));
-  document.querySelectorAll('[data-remove-bookmark]').forEach(b=>b.onclick=()=>{
-    state.bookmarks.splice(Number(b.dataset.removeBookmark),1); save(); mount('desk');
+  document.querySelectorAll('[data-desk-grade]').forEach(b=>b.onclick=()=>{
+    state.grade=Number(b.dataset.deskGrade);
+    if(!isSubjectAvailable(state.subject,state.grade)) state.subject='jp';
+    save();
+    mount('bookmarks');
   });
+  btnView();
 }
 function renderAnalytics(){
   const entries=Object.entries(state.usage).sort((a,b)=>b[1]-a[1]); const total=entries.reduce((a,b)=>a+b[1],0)||1;
   document.querySelector('#app').innerHTML=`
     <section class="card panel"><p class="eyebrow">運営者向け</p><h1>利用分析</h1><p>人気教科・機能を見て、強いジャンルを優先的に充実させます。</p></section>
-    <section class="section metric-grid">${[['総操作',state.total],['利用種類',entries.length],['お気に入り',state.favorites.length],['履歴',state.recents.length]].map(x=>`<div class="metric card"><div class="muted">${x[0]}</div><div class="num">${x[1]}</div></div>`).join('')}</section>
+    <section class="section metric-grid">${[['総操作',state.total],['利用種類',entries.length],['しおり',state.bookmarks.length],['履歴',state.recents.length]].map(x=>`<div class="metric card"><div class="muted">${x[0]}</div><div class="num">${x[1]}</div></div>`).join('')}</section>
     <section class="section two-col">
       <div class="card panel"><h2>人気機能</h2>${entries.length?entries.map(([k,v])=>`<div class="bar-row"><span>${label(k)}</span><div class="bar"><i style="width:${Math.round(v/total*100)}%"></i></div><b>${v}</b></div>`).join(''):'<p class="muted">まだデータがありません。</p>'}</div>
       <div class="card panel"><h2>次に強化する候補</h2><div class="list">${entries.slice(0,3).map(([k,v],i)=>`<div class="list-item"><b>${i+1}. ${label(k)}</b><span class="muted">${v}回利用</span></div>`).join('')||'<div class="list-item">まず5教科を触って傾向を集めます。</div>'}</div></div>
@@ -764,6 +853,6 @@ function matrixHtml(){
   ];
   return `<div style="overflow:auto"><table class="matrix"><thead><tr><th>機能</th><th>国語</th><th>算数</th><th>理科</th><th>社会</th><th>英語</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
-function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',favorite:'お気に入り',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'しおり'}[k]||k)}
+function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'しおり'}[k]||k)}
 const initialView=applyUrlState()||'home';
 mount(initialView);

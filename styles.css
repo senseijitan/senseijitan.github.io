@@ -440,3 +440,202 @@ body{background:radial-gradient(circle at 10% 0%,rgba(47,124,246,.06),transparen
   .subject-tabs{gap:6px!important}.subject-tab{padding:0 11px!important}.subject-tab .subject-pict{width:17px!important;height:17px!important}
   .bottom-nav{padding-bottom:max(6px,env(safe-area-inset-bottom))}.bottom-nav button{min-width:72px}
 }
+
+/* =========================================================
+   v9.5 grade-scoped bookmarks
+   ========================================================= */
+.grade-bookmark-row{
+  display:flex;
+  justify-content:flex-end;
+  padding-top:9px;
+}
+.grade-bookmark-btn,
+.bookmark-list-open{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:40px;
+  padding:8px 12px;
+  border:1px solid #cfe0f2;
+  border-radius:12px;
+  background:#fff;
+  color:var(--edu-text,#17324d);
+  font-weight:850;
+  cursor:pointer;
+}
+.grade-bookmark-btn:hover,
+.bookmark-list-open:hover{
+  background:var(--edu-primary-soft,#eaf3ff);
+  border-color:#aecdEE;
+  color:var(--edu-primary,#2f7cf6);
+}
+.grade-bookmark-btn strong{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:28px;
+  height:24px;
+  padding:0 7px;
+  border-radius:999px;
+  background:var(--edu-primary-soft,#eaf3ff);
+  color:var(--edu-primary,#2f7cf6);
+  font-size:.78rem;
+}
+.compact-bookmark-list{
+  width:100%;
+}
+.bookmark-page-hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:24px;
+  background:linear-gradient(135deg,#fff,#f3f8ff)!important;
+}
+.bookmark-page-hero h1{margin:.25rem 0}
+.bookmark-count-large{
+  min-width:116px;
+  padding:16px;
+  text-align:center;
+  border:1px solid #dbe6f2;
+  border-radius:16px;
+  background:#f8fbff;
+}
+.bookmark-count-large b{
+  display:block;
+  font-size:2rem;
+  color:var(--edu-primary,#2f7cf6);
+}
+.bookmark-count-large span{color:var(--edu-muted,#6c8094);font-size:.82rem}
+.bookmark-grade-switch{
+  display:flex;
+  gap:8px;
+  padding:12px;
+  margin-top:14px;
+  overflow-x:auto;
+}
+.bookmark-grade-switch button{
+  min-width:76px;
+  min-height:44px;
+  padding:8px 12px;
+  border:1px solid #dbe6f2;
+  border-radius:12px;
+  background:#fff;
+  color:#17324d;
+  font-weight:850;
+}
+.bookmark-grade-switch button.active{
+  background:var(--edu-primary,#2f7cf6);
+  border-color:var(--edu-primary,#2f7cf6);
+  color:#fff;
+}
+.bookmark-grade-switch button span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:22px;
+  height:22px;
+  margin-left:4px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  font-size:.72rem;
+}
+.bookmark-subject-groups{
+  display:grid;
+  gap:14px;
+  margin-top:14px;
+}
+.bookmark-subject-group{
+  padding:18px;
+}
+.bookmark-subject-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+.bookmark-subject-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.bookmark-subject-title .subject-pict{
+  width:28px;
+  height:28px;
+}
+.bookmark-subject-title b{display:block;font-size:1.06rem}
+.bookmark-subject-title span{display:block;color:var(--edu-muted,#6c8094);font-size:.78rem}
+.bookmark-shortcut-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.bookmark-shortcut{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px;
+  border:1px solid #dbe6f2;
+  border-radius:14px;
+  background:#fbfdff;
+}
+.bookmark-shortcut h3{
+  margin:.35rem 0 0;
+  font-size:1rem;
+}
+.bookmark-shortcut-actions{
+  display:flex;
+  gap:7px;
+  flex:0 0 auto;
+}
+.bookmark-shortcut-actions button{
+  min-height:38px;
+  padding:7px 10px;
+  border:0;
+  border-radius:10px;
+  background:var(--edu-primary,#2f7cf6);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+.bookmark-shortcut-actions .ghost{
+  background:#eef2f6;
+  color:#53697d;
+}
+.bookmark-empty{padding:8px 2px}
+.desk-grade-bookmarks{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:14px;
+}
+.desk-grade-bookmarks button{
+  min-height:52px;
+  border:1px solid #dbe6f2;
+  border-radius:12px;
+  background:#fff;
+  color:#17324d;
+  font-weight:850;
+}
+.desk-grade-bookmarks button.active{
+  border-color:#b9d3f1;
+  background:#eef6ff;
+  color:#2f7cf6;
+}
+.bookmark-home{
+  display:flex!important;
+  align-items:center;
+  gap:8px;
+}
+.bookmark-home .subject-pict{width:17px;height:17px}
+@media(max-width:700px){
+  .bookmark-page-hero{align-items:stretch;flex-direction:column}
+  .bookmark-count-large{min-width:0}
+  .bookmark-shortcut-grid{grid-template-columns:1fr}
+  .bookmark-shortcut{align-items:stretch;flex-direction:column}
+  .bookmark-shortcut-actions{width:100%}
+  .bookmark-shortcut-actions button{flex:1}
+  .desk-grade-bookmarks{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
