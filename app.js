@@ -8,6 +8,7 @@ if(!state.boardTemplate) state.boardTemplate='flow';
 if(!Array.isArray(state.bookmarks)) state.bookmarks=[];
 if(!state.lastOpened) state.lastOpened=null;
 if(!state.aiPlans) state.aiPlans={};
+if(!state.aiBoards) state.aiBoards={};
 
 function unitUrl(grade,subject,unitId){
   const u=new URL(window.location.href);
@@ -707,6 +708,180 @@ function planToText(plan){
   return lines.join('\n');
 }
 
+
+function aiBoardKey(){
+  return `${state.grade}:${state.subject}:${state.unitId||state.unit}:${state.level}:${state.boardTemplate||'flow'}`;
+}
+function getSavedAiBoard(){
+  return state.aiBoards?.[aiBoardKey()]||null;
+}
+function saveAiBoard(board){
+  if(!state.aiBoards) state.aiBoards={};
+  state.aiBoards[aiBoardKey()]={...board,savedAt:Date.now()};
+  save();
+}
+function boardTemplateLabel(){
+  return {
+    flow:'思考の流れ型',
+    compare:'考え比較型',
+    visual:'図解中心型',
+    question:'問い深掘り型',
+    simple:'シンプル時短型'
+  }[state.boardTemplate]||'思考の流れ型';
+}
+function buildWariaiBoard(){
+  const lv=levels[state.level];
+  const t=state.boardTemplate||'flow';
+  const base={
+    title:'小5 算数「割合」板書案',
+    badge:`MVP生成・${boardTemplateLabel()}・${lv.label}`,
+    objective:'割合の意味を理解し、比べられる量と基準量の関係から割合を求める。',
+    problem:'20人中8人が賛成、10人中5人が賛成。どちらが「賛成が多い」と言える？',
+    summary:'割合 ＝ 比べられる量 ÷ 基準量',
+    note:'図・式・言葉を対応させ、基準量を1とみる考えを残す。'
+  };
+  if(t==='compare'){
+    return {...base,columns:[
+      {head:'考えA：人数で比べる',body:['8人と5人を比べる','→ 全体の人数が違うので公平でない']},
+      {head:'考えB：割合で比べる',body:['8÷20＝0.4','5÷10＝0.5','→ 0.5の方が大きい']},
+      {head:'共通点・違い',body:['どちらも「多さ」を比べている','全体をそろえて考えるのが割合']}
+    ]};
+  }
+  if(t==='visual'){
+    return {...base,columns:[
+      {head:'問題',body:['20人中8人','10人中5人']},
+      {head:'関係図',body:['全体＝1','8/20＝0.4','5/10＝0.5']},
+      {head:'式とまとめ',body:['8÷20＝0.4','5÷10＝0.5','割合＝比べられる量÷基準量']}
+    ]};
+  }
+  if(t==='question'){
+    return {...base,columns:[
+      {head:'大きな問い',body:['全体の人数が違うとき、どう比べれば公平？']},
+      {head:'予想・根拠',body:['同じ全体にそろえる','全体を1として考える','割り算で表せそう']},
+      {head:'再考・まとめ',body:['0.4と0.5を比べる','割合で比べれば公平','割合＝比べられる量÷基準量']}
+    ]};
+  }
+  if(t==='simple'){
+    return {...base,columns:[
+      {head:'めあて',body:['全体が違う2つの量を公平に比べよう']},
+      {head:'要点3つ',body:['基準量を決める','比べられる量÷基準量','割合で大小を比べる']},
+      {head:'まとめ',body:['割合＝比べられる量÷基準量']}
+    ]};
+  }
+  return {...base,columns:[
+    {head:'問題・めあて',body:['20人中8人 / 10人中5人','どちらが「多い」？','全体が違うときの比べ方を考えよう']},
+    {head:'考え・比較',body:['8÷20＝0.4','5÷10＝0.5','図と式を対応させる','0.4＜0.5']},
+    {head:'まとめ・振り返り',body:['割合＝比べられる量÷基準量','基準量を1とみる','公平に比べられる']}
+  ]};
+}
+function buildGenericAiBoard(){
+  const rec=currentUnitRecord();
+  const lv=levels[state.level];
+  const objective=rec?.learning_objective||demo[state.subject].goal;
+  const t=state.boardTemplate||'flow';
+  const subjectParts={
+    jp:{
+      problem:`「${state.unit}」を読み、本文の言葉を根拠に考えよう。`,
+      middle:['根拠となる言葉','児童の考えA / B','人物や内容の変化'],
+      summary:'本文の言葉と自分の考えをつなげてまとめる。'
+    },
+    math:{
+      problem:`「${state.unit}」の問題を図・式・言葉で考えよう。`,
+      middle:['図で表す','式で表す','考え方を比べる'],
+      summary:'大事な考え方を一文でまとめる。'
+    },
+    science:{
+      problem:`「${state.unit}」について予想し、実験・観察で確かめよう。`,
+      middle:['予想','実験条件','結果','考察'],
+      summary:'結果を根拠に分かったことをまとめる。'
+    },
+    social:{
+      problem:`「${state.unit}」について資料を比べ、変化や理由を考えよう。`,
+      middle:['資料A / B','気付いたこと','比較','なぜ？'],
+      summary:'資料を根拠に特色や意味をまとめる。'
+    },
+    english:{
+      problem:`「${state.unit}」で使う表現を使って伝え合おう。`,
+      middle:['Today’s goal','Key words','Model sentence','Pair talk'],
+      summary:'今日使えた表現を振り返る。'
+    }
+  }[state.subject];
+  const cols = t==='simple'
+    ? [
+        {head:'めあて',body:[subjectParts.problem]},
+        {head:'要点3つ',body:subjectParts.middle.slice(0,3)},
+        {head:'まとめ',body:[subjectParts.summary]}
+      ]
+    : t==='compare'
+    ? [
+        {head:'考えA',body:[subjectParts.middle[0]||'考えA']},
+        {head:'考えB',body:[subjectParts.middle[1]||'考えB']},
+        {head:'共通点・違い',body:[subjectParts.middle[2]||'比較して整理する',subjectParts.summary]}
+      ]
+    : t==='question'
+    ? [
+        {head:'大きな問い',body:[subjectParts.problem]},
+        {head:'予想・根拠',body:subjectParts.middle},
+        {head:'再考・まとめ',body:[subjectParts.summary]}
+      ]
+    : [
+        {head:'問題・めあて',body:[subjectParts.problem]},
+        {head:'考え・交流',body:subjectParts.middle},
+        {head:'まとめ・振り返り',body:[subjectParts.summary]}
+      ];
+  return {
+    title:`小${state.grade} ${subjectUiName(state.subject)}「${state.unit}」板書案`,
+    badge:`MVP生成・${boardTemplateLabel()}・${lv.label}`,
+    objective,
+    problem:subjectParts.problem,
+    summary:subjectParts.summary,
+    note:`授業レベル：${lv.label}。児童の考えを消さずに比較できる配置を優先する。`,
+    columns:cols
+  };
+}
+function generateAiBoard(){
+  const isWariai=state.grade===5 && state.subject==='math' && state.unit==='割合';
+  const board=isWariai?buildWariaiBoard():buildGenericAiBoard();
+  saveAiBoard(board);
+  track('aiBoard',`${state.grade}年 ${subjectUiName(state.subject)} ${state.unit} ${boardTemplateLabel()}`);
+  return board;
+}
+function renderAiBoardHtml(board){
+  if(!board) return '';
+  return `
+    <div class="ai-board-result-head">
+      <div><span class="ai-generated-badge">${board.badge}</span><h3>${board.title}</h3></div>
+      <div class="ai-result-actions">
+        <button id="ai-copy-board" class="unit-card">板書案をコピー</button>
+        <button id="ai-regenerate-board" class="unit-card">作り直す</button>
+      </div>
+    </div>
+    <div class="ai-board-canvas">
+      <div class="ai-board-topline">
+        <div><small>めあて / 課題</small><strong>${board.problem}</strong></div>
+        <div><small>学習目標</small><span>${board.objective}</span></div>
+      </div>
+      <div class="ai-board-columns">
+        ${board.columns.map((c,i)=>`<section class="ai-board-col">
+          <div class="ai-board-col-head">${i+1}. ${c.head}</div>
+          <ul>${c.body.map(x=>`<li>${x}</li>`).join('')}</ul>
+        </section>`).join('')}
+      </div>
+      <div class="ai-board-summary"><b>まとめ</b><span>${board.summary}</span></div>
+    </div>
+    <p class="ai-note">${board.note} 実際の板書は教室の進行と児童の発言に合わせて調整してください。</p>`;
+}
+function boardToText(board){
+  return [
+    board.title,'',
+    '【めあて / 課題】',board.problem,'',
+    '【学習目標】',board.objective,'',
+    ...board.columns.flatMap(c=>[`【${c.head}】`,...c.body.map(x=>`・${x}`),'']),
+    '【まとめ】',board.summary,'',
+    board.note
+  ].join('\n');
+}
+
 function renderUnit(){
   const s=subjects[state.subject];
   const rec=currentUnitRecord();
@@ -769,7 +944,7 @@ function renderUnit(){
     </section>
     <section class="unit-layout">
       <aside class="side card">
-        <button data-anchor="ai-lesson">${lessonPict()} AI授業案</button><button data-anchor="lesson">${lessonPict()} 授業</button><button data-anchor="board">${boardPict()} 板書</button><button data-anchor="visual">${visualPict()} 図・挿絵</button>
+        <button data-anchor="ai-lesson">${lessonPict()} AI授業案</button><button data-anchor="lesson">${lessonPict()} 授業</button><button data-anchor="board">${boardPict()} 板書</button><button data-anchor="ai-board">${boardPict()} AI板書</button><button data-anchor="visual">${visualPict()} 図・挿絵</button>
         <button data-anchor="activity">${activityPict()} 活動</button><button data-anchor="quiz">${quizPict()} ミニテスト</button><button data-anchor="support">${supportPict()} つまずき</button>
       </aside>
       <div class="stack">
@@ -828,7 +1003,24 @@ function renderUnit(){
           <h3 style="margin-top:22px">先生時短AI 板書テンプレート5種</h3>
           <div class="lesson-grid">${boardTemplates.map(t=>`<div class="mini"><b>${t.name}</b><div>${t.short}</div><div class="muted">おすすめ：${t.best}</div></div>`).join('')}</div>
         </section>
-        <section id="visual" class="content card"><h2>${visualPict()} 図・挿絵・視覚支援</h2>
+        
+        <section id="ai-board" class="ai-board-panel card">
+          <div class="ai-lesson-intro">
+            <div>
+              <span class="ai-label">AI板書生成 MVP</span>
+              <h2>この単元の板書案を作る</h2>
+              <p>現在の板書テンプレートと授業レベルを使って、黒板3分割の構成案を自動作成します。</p>
+            </div>
+            <button id="ai-generate-board" class="ai-generate-btn">板書案を生成</button>
+          </div>
+          <div class="ai-condition-row">
+            <span>小${state.grade}</span><span>${displayName}</span><span>${state.unit}</span><span>${boardTemplateLabel()}</span><span>${lv.label}</span>
+          </div>
+          <div class="ai-safety-note">MVP段階ではブラウザ内の板書設計テンプレートで生成します。外部AI APIには接続していません。</div>
+          <div id="ai-board-result">${renderAiBoardHtml(getSavedAiBoard())}</div>
+        </section>
+
+<section id="visual" class="content card"><h2>${visualPict()} 図・挿絵・視覚支援</h2>
           <div class="lesson-grid">${visualIdeas(state.subject).map(x=>`<div class="figure-card"><div class="figure">${x[0]}</div><b>${x[1]}</b><div class="muted">${x[2]}</div></div>`).join('')}</div></section>
         <section id="activity" class="content card"><h2>${activityPict()} 楽しい活動 / あと5分</h2>
           <div class="lesson-grid">${activities(state.subject).map(x=>`<div class="mini"><b>${x[0]}</b><div>${adapt(x[1])}</div></div>`).join('')}</div></section>
@@ -906,6 +1098,44 @@ const boardLarge=document.querySelector('#board-large');
     },350);
   };
   wireAiPlanActions();
+
+
+  function wireAiBoardActions(){
+    const copyBtn=document.querySelector('#ai-copy-board');
+    if(copyBtn) copyBtn.onclick=async()=>{
+      const board=getSavedAiBoard();
+      if(!board) return;
+      try{
+        await navigator.clipboard.writeText(boardToText(board));
+        copyBtn.textContent='コピーしました';
+        setTimeout(()=>copyBtn.textContent='板書案をコピー',1200);
+      }catch(e){
+        alert(boardToText(board));
+      }
+    };
+    const regenBtn=document.querySelector('#ai-regenerate-board');
+    if(regenBtn) regenBtn.onclick=()=>{
+      const board=generateAiBoard();
+      const box=document.querySelector('#ai-board-result');
+      if(box) box.innerHTML=renderAiBoardHtml(board);
+      wireAiBoardActions();
+    };
+  }
+  const aiBoardGenerate=document.querySelector('#ai-generate-board');
+  if(aiBoardGenerate) aiBoardGenerate.onclick=()=>{
+    aiBoardGenerate.disabled=true;
+    aiBoardGenerate.textContent='板書案を作成中…';
+    setTimeout(()=>{
+      const board=generateAiBoard();
+      const box=document.querySelector('#ai-board-result');
+      if(box) box.innerHTML=renderAiBoardHtml(board);
+      aiBoardGenerate.disabled=false;
+      aiBoardGenerate.textContent='板書案を生成';
+      wireAiBoardActions();
+      box?.scrollIntoView({behavior:'smooth',block:'start'});
+    },300);
+  };
+  wireAiBoardActions();
 
   const bm=document.querySelector('#bookmark');
   if(bm) bm.onclick=()=>{
@@ -1102,6 +1332,6 @@ function matrixHtml(){
   ];
   return `<div style="overflow:auto"><table class="matrix"><thead><tr><th>機能</th><th>国語</th><th>算数</th><th>理科</th><th>社会</th><th>英語</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
-function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'お気に入り',aiLesson:'AI授業案生成'}[k]||k)}
+function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'お気に入り',aiLesson:'AI授業案生成',aiBoard:'AI板書生成'}[k]||k)}
 const initialView=applyUrlState()||'home';
 mount(initialView);

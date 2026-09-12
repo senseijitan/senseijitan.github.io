@@ -806,3 +806,101 @@ body{background:radial-gradient(circle at 10% 0%,rgba(47,124,246,.06),transparen
   .ai-result-head{flex-direction:column}
   .ai-flow-row{grid-template-columns:1fr}
 }
+
+/* =========================================================
+   v11 AI Board MVP
+   ========================================================= */
+.ai-board-panel{
+  padding:22px;
+  margin-top:14px;
+  border:1px solid #cfe0f5!important;
+  background:linear-gradient(135deg,#f7fbff,#fff 52%,#f3faf5)!important;
+}
+#ai-board-result:not(:empty){
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #dbe6f2;
+}
+.ai-board-result-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:14px;
+}
+.ai-board-result-head h3{
+  margin:.45rem 0 0;
+  font-size:1.3rem;
+}
+.ai-board-canvas{
+  padding:18px;
+  border-radius:18px;
+  background:#244839;
+  color:#f8fbf6;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(23,50,77,.12);
+}
+.ai-board-topline{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:12px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+.ai-board-topline>div{
+  padding:10px 12px;
+  border-radius:10px;
+  background:rgba(255,255,255,.05);
+}
+.ai-board-topline small{
+  display:block;
+  color:#d8eadf;
+  margin-bottom:4px;
+}
+.ai-board-topline strong,
+.ai-board-topline span{
+  display:block;
+}
+.ai-board-columns{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin:12px 0;
+}
+.ai-board-col{
+  min-height:190px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:10px;
+  background:rgba(0,0,0,.08);
+}
+.ai-board-col-head{
+  display:inline-flex;
+  padding:4px 8px;
+  margin-bottom:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  font-weight:900;
+}
+.ai-board-col ul{
+  margin:.35rem 0 0;
+  padding-left:1.2rem;
+}
+.ai-board-col li+li{margin-top:.45rem}
+.ai-board-summary{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:11px 12px;
+  border-radius:10px;
+  background:#f3f0c8;
+  color:#27362d;
+}
+.ai-board-summary b{
+  flex:0 0 auto;
+}
+@media(max-width:760px){
+  .ai-board-result-head{flex-direction:column}
+  .ai-board-topline{grid-template-columns:1fr}
+  .ai-board-columns{grid-template-columns:1fr}
+  .ai-board-col{min-height:0}
+}
