@@ -639,3 +639,7 @@ body{background:radial-gradient(circle at 10% 0%,rgba(47,124,246,.06),transparen
   .bookmark-shortcut-actions button{flex:1}
   .desk-grade-bookmarks{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* v9.6 home navigation safeguard */
+#app:empty{min-height:0}
+#app .nav-row{position:relative;z-index:1}

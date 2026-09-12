@@ -325,12 +325,33 @@ function track(feature,label){
 function btnView(){
   document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{
     const view=b.dataset.view;
-    if(view==='home') clearUnitUrl();
+
+    if(view==='home'){
+      clearUnitUrl();
+      history.replaceState({view:'home'},'',location.pathname);
+    }
+
     const root=document.querySelector('#app');
-    if(root) root.innerHTML='';
+    if(root) root.replaceChildren();
+
     mount(view);
-    window.scrollTo({top:0,left:0,behavior:'instant'});
+    window.scrollTo({top:0,left:0,behavior:'auto'});
   });
+}
+
+function wireCommon(view){
+  btnView();
+
+  document.querySelectorAll('[data-anchor]').forEach(b=>b.onclick=()=>{
+    const id=b.dataset.anchor;
+    const target=document.getElementById(id);
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  // ホーム表示中は、単元/教科ページ用の戻るボタンが残らないよう明示的に除去
+  if(view==='home'){
+    document.querySelectorAll('#app .nav-row').forEach(el=>el.remove());
+  }
 }
 function renderSubjectTabs(){
   const wrap=document.querySelector('#global-tabs');
@@ -399,6 +420,7 @@ function mount(view='home'){
   wireCommon(view);
 }
 function renderHome(){
+  document.querySelectorAll('#app .nav-row').forEach(el=>el.remove());
   const subjectCards=Object.entries(subjects).map(([k,s])=>{
     const available=isSubjectAvailable(k);
     const count=unitsFor(state.grade,k).length;
