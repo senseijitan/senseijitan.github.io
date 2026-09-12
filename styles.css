@@ -8,3 +8,4 @@
 .source-note{margin:8px 0 14px;color:var(--muted);font-size:11px}.source-note a{color:var(--blue);text-decoration:none}.source-note a:hover{text-decoration:underline}
 .support-paper{margin-top:14px}.support-row{display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fbfdff}.support-row b{display:grid;place-items:center;min-width:27px;height:27px;border-radius:50%;background:var(--navy);color:#fff}.support-row span{font-weight:600;color:var(--ink)}
 .desk-category{margin-top:28px}.desk-category .section-title{margin-top:0}
+.danger{border:0;border-radius:10px;padding:11px 17px;font:inherit;font-weight:700;cursor:pointer;background:#fff0f0;color:#b43a3a}
