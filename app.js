@@ -7,6 +7,7 @@ if(!state.boardTemplate) state.boardTemplate='flow';
 
 if(!Array.isArray(state.bookmarks)) state.bookmarks=[];
 if(!state.lastOpened) state.lastOpened=null;
+if(!state.aiPlans) state.aiPlans={};
 
 function unitUrl(grade,subject,unitId){
   const u=new URL(window.location.href);
@@ -533,6 +534,179 @@ function wireUnitCards(){
 }
 
 function levelButtons(){return Object.entries(levels).map(([k,l])=>`<button data-level="${k}" class="${state.level===k?'active':''}">${l.label}</button>`).join('')}
+
+function aiPlanKey(){
+  return `${state.grade}:${state.subject}:${state.unitId||state.unit}:${state.level}`;
+}
+function getSavedAiPlan(){
+  return state.aiPlans?.[aiPlanKey()]||null;
+}
+function saveAiPlan(plan){
+  if(!state.aiPlans) state.aiPlans={};
+  state.aiPlans[aiPlanKey()]={...plan,savedAt:Date.now()};
+  save();
+}
+function levelInstruction(){
+  return {
+    easy:'図や具体例を多めにし、1ステップずつ短い言葉で進める。',
+    standard:'発問・個人思考・交流・まとめをバランスよく構成する。',
+    challenge:'理由説明、比較、応用問題まで扱い、考えを深める。',
+    support:'文字量を抑え、視覚支援、選択式、スモールステップを優先する。'
+  }[state.level]||'標準的な授業構成にする。';
+}
+function subjectLessonFrame(subject){
+  return {
+    jp:{
+      hook:'本文の一部や場面絵を提示し、「このとき、どんな気持ちだろう？」から始める。',
+      question:'本文のどの言葉を根拠に、そう考えましたか？',
+      responses:['会話文に注目する','行動や様子から考える','友達の考えと比べる'],
+      support:'読む範囲を区切り、根拠となる言葉に色を付ける。',
+      board:'めあて → 根拠となる言葉 → 児童の考え → 共通点・違い → まとめ',
+      evaluation:'本文の言葉を根拠に、自分の考えを説明できているか。'
+    },
+    math:{
+      hook:'身近な場面の数値を使った短い問題を提示し、まず予想させる。',
+      question:'なぜその式・考え方で求められるのですか？',
+      responses:['図で表す','式で表す','言葉で説明する','別の解き方と比べる'],
+      support:'図 → 言葉 → 式の順で整理し、必要に応じて数直線や関係図を示す。',
+      board:'問題 → めあて → 児童の考えA/B → 比較 → 大事な考え → まとめ',
+      evaluation:'数量の関係を捉え、図・式・言葉を関連付けて説明できているか。'
+    },
+    science:{
+      hook:'現象の写真や実物を見せ、「どうなると思う？」と予想させる。',
+      question:'結果から、どんなことが言えますか？',
+      responses:['予想する','条件をそろえる','結果を比べる','根拠を挙げて考察する'],
+      support:'実験手順を1工程ずつ示し、観察するポイントを限定する。',
+      board:'予想 → 実験条件 → 結果 → 比較 → 考察 → まとめ',
+      evaluation:'実験結果を根拠に、現象について説明できているか。'
+    },
+    social:{
+      hook:'2つの資料を提示し、「何が違う？」という比較から入る。',
+      question:'この資料から、どんな変化や理由が読み取れますか？',
+      responses:['資料の違いを見つける','時代や地域を比べる','原因と結果をつなぐ'],
+      support:'資料数を絞り、「いつ・どこ・何が」を先に整理する。',
+      board:'資料A/B → 気付いたこと → 比較 → なぜ？ → まとめ',
+      evaluation:'複数資料を関連付け、社会的な事象の特色や意味を説明できているか。'
+    },
+    english:{
+      hook:'先生が短いモデル会話を見せ、聞き取れた言葉を挙げさせる。',
+      question:'今日の表現を使って、相手に何を伝えたいですか？',
+      responses:['モデルをまねる','単語を入れ替える','ペアで伝え合う'],
+      support:'絵カードとモデル文を見せ、選んで話せるようにする。',
+      board:'Today’s goal → Key words → Model → Pair talk → Reflection',
+      evaluation:'今日の表現を使い、相手に伝えようとしているか。'
+    }
+  }[subject];
+}
+function buildWariaiPlan(){
+  const rec=currentUnitRecord();
+  const lv=levels[state.level];
+  return {
+    title:`小5 算数「割合」45分授業案`,
+    badge:`MVP生成・${lv.label}`,
+    goal:rec?.learning_objective||'割合の意味を理解し、比べられる量と基準量の関係を使って割合を求める。',
+    prep:['割合をイメージできる身近な場面カード','簡単な関係図またはテープ図','ミニホワイトボードまたはノート'],
+    flow:[
+      {time:'0〜5分',phase:'導入',teacher:'「20人中8人が賛成」と「10人中5人が賛成」では、どちらの賛成が多いと言えそう？',student:'人数だけでなく、全体に対する大きさで比べる必要に気付く。'},
+      {time:'5〜10分',phase:'問題提示',teacher:'比べるとき、何を1と見れば公平に比べられるだろう？',student:'基準にする量が必要だと考える。'},
+      {time:'10〜20分',phase:'個人思考',teacher:'図・式・言葉のどれかで、自分の考えを表そう。',student:'「比べられる量 ÷ 基準量」で表せることを考える。'},
+      {time:'20〜30分',phase:'交流',teacher:'AさんとBさんの考えは、どこが同じでどこが違う？',student:'図と式を関連付け、割合の求め方を説明する。'},
+      {time:'30〜38分',phase:'まとめ',teacher:'割合を求めるときの大事な見方を一文でまとめよう。',student:'割合＝比べられる量÷基準量、と整理する。'},
+      {time:'38〜45分',phase:'確認・振り返り',teacher:'別の数値で1問解き、「今日分かったこと」を20字程度で書こう。',student:'求め方を使って解き、学びを振り返る。'}
+    ],
+    questions:[
+      'どちらが「多い」と言うためには、何をそろえて考える必要がありますか？',
+      '基準量はどの数ですか？ その理由は？',
+      '図と式は、どこが対応していますか？',
+      '割合が1より大きくなるのは、どんなときですか？'
+    ],
+    responses:['「全体の人数が違うから、そのまま人数では比べられない」','「基準にする量を1と考える」','「8÷20のように割り算で表せる」','「比べられる量が基準量より大きいと1を超える」'],
+    stumbling:[
+      ['基準量と比べられる量が逆になる','問題文の「何をもとにしているか」を先に丸で囲む。'],
+      ['式の順番に迷う','「比べられる量 ÷ 基準量」を関係図とセットで確認する。'],
+      ['小数の意味がつかみにくい','0.4＝全体を1としたときの0.4分、と図で示す。']
+    ],
+    board:['左：問題とめあて','中央：児童の図・式を2通り並べる','右：割合＝比べられる量÷基準量、振り返り'],
+    evaluation:'割合の意味を理解し、基準量と比べられる量の関係を捉えて、図・式・言葉で説明できているか。',
+    note:'この案は授業準備を短縮するためのMVP生成です。学級の実態、使用教科書、学校の年間指導計画に合わせて先生が最終確認してください。'
+  };
+}
+function buildGenericAiPlan(){
+  const rec=currentUnitRecord();
+  const frame=subjectLessonFrame(state.subject);
+  const lv=levels[state.level];
+  const objective=rec?.learning_objective||demo[state.subject].goal;
+  return {
+    title:`小${state.grade} ${subjectUiName(state.subject)}「${state.unit}」45分授業案`,
+    badge:`MVP生成・${lv.label}`,
+    goal:objective,
+    prep:['教科書・ノート','単元に合う提示資料','振り返り用の短い確認問題'],
+    flow:[
+      {time:'0〜5分',phase:'導入',teacher:frame.hook,student:'既習事項や生活経験と結び付けて予想する。'},
+      {time:'5〜10分',phase:'めあて',teacher:`今日の学習で「${state.unit}」について何を明らかにしたいか確認する。`,student:'学習課題を自分の言葉で捉える。'},
+      {time:'10〜22分',phase:'個人思考',teacher:frame.question,student:frame.responses[0]+'。'},
+      {time:'22〜32分',phase:'交流',teacher:'友達の考えと自分の考えを比べ、共通点・違いを見つけよう。',student:frame.responses.slice(1).join('、')+'。'},
+      {time:'32〜40分',phase:'まとめ',teacher:'今日分かった大事なことを一文でまとめよう。',student:'学習目標に沿って要点を整理する。'},
+      {time:'40〜45分',phase:'振り返り',teacher:'できるようになったこと、まだ確かめたいことを書こう。',student:'自分の理解を振り返る。'}
+    ],
+    questions:[frame.question,'友達の考えのよいところはどこですか？','今日の学習を使うと、どんなことが説明できますか？'],
+    responses:frame.responses,
+    stumbling:[[state.subject==='math'?'式・考え方を選べない':'学習課題がつかみにくい',frame.support],['説明が短くなりすぎる','「なぜなら」「根拠は」の言葉を使って説明させる。']],
+    board:[frame.board,'児童の考えを比較できるよう中央に残す','最後にまとめと振り返りを右側に整理する'],
+    evaluation:frame.evaluation,
+    note:`授業レベル：${lv.label}。${levelInstruction()} この案はMVP生成です。学校・学級の実態に合わせて最終確認してください。`
+  };
+}
+function generateAiLessonPlan(){
+  const isWariai=state.grade===5 && state.subject==='math' && state.unit==='割合';
+  const plan=isWariai?buildWariaiPlan():buildGenericAiPlan();
+  saveAiPlan(plan);
+  track('aiLesson',`${state.grade}年 ${subjectUiName(state.subject)} ${state.unit} ${levels[state.level].label}`);
+  return plan;
+}
+function renderAiPlanHtml(plan){
+  if(!plan) return '';
+  return `
+    <div class="ai-result-head">
+      <div><span class="ai-generated-badge">${plan.badge}</span><h3>${plan.title}</h3></div>
+      <div class="ai-result-actions">
+        <button id="ai-copy-plan" class="unit-card">授業案をコピー</button>
+        <button id="ai-regenerate-plan" class="unit-card">作り直す</button>
+      </div>
+    </div>
+    <div class="ai-plan-grid">
+      <div class="ai-plan-box"><b>学習目標</b><p>${plan.goal}</p></div>
+      <div class="ai-plan-box"><b>準備物</b><ul>${plan.prep.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    </div>
+    <div class="ai-flow">
+      ${plan.flow.map(x=>`<article class="ai-flow-row"><div class="ai-time">${x.time}</div><div><b>${x.phase}</b><p><span>先生：</span>${x.teacher}</p><p><span>児童：</span>${x.student}</p></div></article>`).join('')}
+    </div>
+    <div class="ai-plan-grid">
+      <div class="ai-plan-box"><b>発問例</b><ol>${plan.questions.map(x=>`<li>${x}</li>`).join('')}</ol></div>
+      <div class="ai-plan-box"><b>予想される児童の反応</b><ul>${plan.responses.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div class="ai-plan-box"><b>つまずき対応</b><ul>${plan.stumbling.map(x=>`<li><strong>${x[0]}</strong><br>${x[1]}</li>`).join('')}</ul></div>
+      <div class="ai-plan-box"><b>板書ポイント</b><ul>${plan.board.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    </div>
+    <div class="ai-evaluation"><b>評価観点</b><p>${plan.evaluation}</p></div>
+    <p class="ai-note">${plan.note}</p>`;
+}
+function planToText(plan){
+  const lines=[
+    plan.title,'',
+    '【学習目標】',plan.goal,'',
+    '【準備物】',...plan.prep.map(x=>`・${x}`),'',
+    '【45分の流れ】',
+    ...plan.flow.flatMap(x=>[`${x.time} ${x.phase}`,`先生：${x.teacher}`,`児童：${x.student}`,'']),
+    '【発問例】',...plan.questions.map(x=>`・${x}`),'',
+    '【予想される児童の反応】',...plan.responses.map(x=>`・${x}`),'',
+    '【つまずき対応】',...plan.stumbling.map(x=>`・${x[0]}：${x[1]}`),'',
+    '【板書ポイント】',...plan.board.map(x=>`・${x}`),'',
+    '【評価観点】',plan.evaluation,'',
+    plan.note
+  ];
+  return lines.join('\n');
+}
+
 function renderUnit(){
   const s=subjects[state.subject];
   const rec=currentUnitRecord();
@@ -556,7 +730,7 @@ function renderUnit(){
     <section class="subject-header card unit-detail-hero"><div><p class="eyebrow">単元詳細ページ ｜ 小学校${state.grade}年 ＞ ${displayName}</p><h1>${state.unit}</h1>
       <p><span class="review-chip">DB登録済・要公式確認</span> ${rec?.term?`${rec.term}学期`:'時期未設定'}</p>
       <div class="unit-page-nav">
-        <button data-anchor="lesson">45分授業案</button>
+        <button data-anchor="ai-lesson">AI授業案</button><button data-anchor="lesson">45分授業案</button>
         <button data-anchor="board">板書</button>
         ${materialsForCurrentUnit().length?'<button data-anchor="materials">実在教材</button>':''}
         <button data-anchor="activity">楽しい活動</button>
@@ -574,13 +748,28 @@ function renderUnit(){
       ${alias?`<div class="publisher-meta"><b>出版社での表記（要確認）</b><span>${alias.publisher}「${alias.publisher_unit_name}」 / ${alias.textbook_name}</span><a href="${alias.source_url}" target="_blank" rel="noopener noreferrer">出版社ページ ↗</a></div>`:''}
     </section>`:''}
     <section class="level-panel card"><h2>授業レベル</h2><div class="level-buttons">${levelButtons()}</div><p class="muted">${lv.desc}</p></section>
+    <section id="ai-lesson" class="ai-lesson-panel card">
+      <div class="ai-lesson-intro">
+        <div>
+          <span class="ai-label">AI授業案生成 MVP</span>
+          <h2>この単元の45分授業案を作る</h2>
+          <p>学年・教科・単元・授業レベルをもとに、発問・児童の反応・つまずき対応・板書ポイントまでまとめます。</p>
+        </div>
+        <button id="ai-generate-plan" class="ai-generate-btn">45分授業案を生成</button>
+      </div>
+      <div class="ai-condition-row">
+        <span>小${state.grade}</span><span>${displayName}</span><span>${state.unit}</span><span>${lv.label}</span>
+      </div>
+      <div class="ai-safety-note">MVP段階ではブラウザ内の授業設計テンプレートで生成します。外部AI APIへ児童情報や学校の機密情報は送信しません。</div>
+      <div id="ai-plan-result">${renderAiPlanHtml(getSavedAiPlan())}</div>
+    </section>
     <section class="board-shortcut card">
       <div><b>🧑‍🏫 板書をすぐ見る</b><span>5種類の板書テンプレートから選べます</span></div>
       <button data-anchor="board">板書を見る</button>
     </section>
     <section class="unit-layout">
       <aside class="side card">
-        <button data-anchor="lesson">${lessonPict()} 授業</button><button data-anchor="board">${boardPict()} 板書</button><button data-anchor="visual">${visualPict()} 図・挿絵</button>
+        <button data-anchor="ai-lesson">${lessonPict()} AI授業案</button><button data-anchor="lesson">${lessonPict()} 授業</button><button data-anchor="board">${boardPict()} 板書</button><button data-anchor="visual">${visualPict()} 図・挿絵</button>
         <button data-anchor="activity">${activityPict()} 活動</button><button data-anchor="quiz">${quizPict()} ミニテスト</button><button data-anchor="support">${supportPict()} つまずき</button>
       </aside>
       <div class="stack">
@@ -680,6 +869,44 @@ const boardLarge=document.querySelector('#board-large');
     if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
   });
   
+
+  function wireAiPlanActions(){
+    const copyBtn=document.querySelector('#ai-copy-plan');
+    if(copyBtn) copyBtn.onclick=async()=>{
+      const plan=getSavedAiPlan();
+      if(!plan) return;
+      try{
+        await navigator.clipboard.writeText(planToText(plan));
+        copyBtn.textContent='コピーしました';
+        setTimeout(()=>copyBtn.textContent='授業案をコピー',1200);
+      }catch(e){
+        alert(planToText(plan));
+      }
+    };
+    const regenBtn=document.querySelector('#ai-regenerate-plan');
+    if(regenBtn) regenBtn.onclick=()=>{
+      const plan=generateAiLessonPlan();
+      const box=document.querySelector('#ai-plan-result');
+      if(box) box.innerHTML=renderAiPlanHtml(plan);
+      wireAiPlanActions();
+    };
+  }
+  const aiGenerate=document.querySelector('#ai-generate-plan');
+  if(aiGenerate) aiGenerate.onclick=()=>{
+    aiGenerate.disabled=true;
+    aiGenerate.textContent='授業案を作成中…';
+    setTimeout(()=>{
+      const plan=generateAiLessonPlan();
+      const box=document.querySelector('#ai-plan-result');
+      if(box) box.innerHTML=renderAiPlanHtml(plan);
+      aiGenerate.disabled=false;
+      aiGenerate.textContent='45分授業案を生成';
+      wireAiPlanActions();
+      box?.scrollIntoView({behavior:'smooth',block:'start'});
+    },350);
+  };
+  wireAiPlanActions();
+
   const bm=document.querySelector('#bookmark');
   if(bm) bm.onclick=()=>{
     toggleBookmark();
@@ -875,6 +1102,6 @@ function matrixHtml(){
   ];
   return `<div style="overflow:auto"><table class="matrix"><thead><tr><th>機能</th><th>国語</th><th>算数</th><th>理科</th><th>社会</th><th>英語</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
-function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'お気に入り'}[k]||k)}
+function label(k){return ({grade:'学年選択',subject:'教科選択',unit:'単元選択',level:'レベル切替',quiz:'ミニテスト',boardTemplate:'板書テンプレート',materialFilter:'教材フィルター',bookmark:'お気に入り',aiLesson:'AI授業案生成'}[k]||k)}
 const initialView=applyUrlState()||'home';
 mount(initialView);
