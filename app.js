@@ -17,7 +17,7 @@
     '5年|算数|日本文教出版': ['整数と小数', '体積', '小数のかけ算', '小数のわり算', '合同な図形', '図形の角', '整数の性質', '分数', '平均', '単位量あたりの大きさ', '図形の面積', '割合', '帯グラフと円グラフ', '変わり方', '正多角形と円周', '角柱と円柱']
   };
   function selectedUnits(){ return textbookUnits[`${state.grade}|${state.subject}|${state.publisher}`] || units[state.subject]; }
-  const researchBasis = '<div class="source-note">出題の参考（公開教材の構成を参考にした類題）：<a href="https://surapuri.jp/elementary_school05/wariai/" target="_blank" rel="noopener">すらぷり</a> ／ <a href="https://happylilac.net/keisan-wariai.html" target="_blank" rel="noopener">ちびむすドリル</a> ／ <a href="https://www.print365.net/kurabekatabunsyo5nen/" target="_blank" rel="noopener">ぷりんと365</a> ／ <a href="https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2009/06/16/1234931_004_1.pdf" target="_blank" rel="noopener">文部科学省</a></div>';
+  const researchBasis = '<div class="test-source-links"><strong>出題の参考（公開教材の構成を参考にした類題）</strong><div><a href="https://surapuri.jp/elementary_school05/wariai/" target="_blank" rel="noopener">すらぷり</a><a href="https://happylilac.net/keisan-wariai.html" target="_blank" rel="noopener">ちびむすドリル</a><a href="https://www.print365.net/kurabekatabunsyo5nen/" target="_blank" rel="noopener">ぷりんと365</a><a href="https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2009/06/16/1234931_004_1.pdf" target="_blank" rel="noopener">文部科学省</a></div></div>';
   const testSets = {
     '5年|算数|割合': [
       { format: '選択式', question: '120円の20%はいくらですか。', choices: ['12円', '24円', '60円', '100円'], answer: '24円', explain: '20%は100分の20です。120×0.2＝24なので、24円です。' },
