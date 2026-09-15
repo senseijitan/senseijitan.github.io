@@ -15,3 +15,4 @@
   .publisher-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.publisher-note{margin:10px 0 20px;color:var(--muted);font-size:12px}
   .home-search{text-align:center;margin:32px 0 8px}.search-button{min-width:180px;font-size:17px}.search-button:disabled{background:#cbd5df;color:#fff;cursor:not-allowed;transform:none;box-shadow:none}.search-note{margin:10px 0;color:var(--muted);font-size:12px}
   .choice.selected,.unit-card.selected{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 6px 16px rgba(24,50,75,.2)}.choice.selected strong,.unit-card.selected strong{color:#fff}.choice.selected span,.unit-card.selected span{color:#eaf3ff}
+  .tab.active{background:var(--navy);color:#fff;border-bottom-color:var(--navy);border-radius:8px 8px 0 0}.nav-link.active{background:var(--navy);color:#fff;border-bottom-color:var(--navy);border-radius:8px 8px 0 0}
