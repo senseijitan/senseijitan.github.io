@@ -150,7 +150,7 @@
     '英語':['導入：場面と本時の表現を聞く','練習：意味と音を確認し、短いやり取りをする','活動：目的をもってペアで伝え合う','共有：伝わった表現や工夫を振り返る','評価・振り返り：聞く・話す活動の様子を見取る']
   };
   const referenceInfo={
-    '国語':[['文部科学省 学習指導要領解説 国語','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/'],['東京書籍 ウェブ指導案「新編 新しい国語」','https://sites.google.com/tokyo-shoseki.co.jp/kokugo-shidoan/'],['小学校国語科 授業アシスト 板書アイディア53','https://www.meijitosho.co.jp/detail/4-18-037423-6']],
+    '国語':[['文部科学省 学習指導要領解説 国語','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/'],['小学校国語科 授業アシスト 板書アイディア53','https://www.meijitosho.co.jp/detail/4-18-037423-6']],
     '算数':[['文部科学省 学習指導要領解説 算数','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/'],['啓林館 指導書活用Navi（板書指導案・教材）','https://www.shinko-keirin.co.jp/keirinkan/sho/sansu/navi/'],['京都教育大学 教科別学習指導案例（算数）','https://www.kyokyo-u.ac.jp/kyoumu/jicci/sidouan/']],
     '理科':[['文部科学省 学習指導要領解説 理科','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/'],['京都教育大学 教科別学習指導案例（理科）','https://www.kyokyo-u.ac.jp/kyoumu/jicci/sidouan/'],['NITS 教材研究の方法（発問・板書計画）','https://www.nits.go.jp/materials/basic/files/012_001.pdf']],
     '社会':[['文部科学省 学習指導要領解説 社会','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/'],['京都教育大学 教科別学習指導案例（社会）','https://www.kyokyo-u.ac.jp/kyoumu/jicci/sidouan/'],['学びの場.com 指導案データベース','https://www.manabinoba.com/plans/']],
@@ -166,7 +166,7 @@
   };
   const generalReferenceByKind={
     overview:[['文部科学省 小学校学習指導要領解説','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/'],['文部科学省 学習評価の通知','https://www.mext.go.jp/b_menu/hakusho/nc/1415169.htm'],['教育出版 年間指導計画・評価計画','https://www.kyoiku-shuppan.co.jp/tokushu/r6plan.html']],
-    lesson:[['京都教育大学 教科別学習指導案例','https://www.kyokyo-u.ac.jp/kyoumu/jicci/sidouan/'],['学びの場.com 指導案データベース','https://www.manabinoba.com/plans/'],['熊本大学附属小学校 教科別指導案','https://www.educ.kumamoto-u.ac.jp/elem/the_study/instructional_plan/'],['東京都教職員研修センター 学習指導案のページ','https://www.kyoiku-kensyu.metro.tokyo.lg.jp/08ojt/helpdesk/plans/'],['東京書籍 ウェブ指導案「新編 新しい国語」','https://sites.google.com/tokyo-shoseki.co.jp/kokugo-shidoan/'],['NITS 授業・単元づくり 教材研究の方法','https://www.nits.go.jp/materials/basic/files/012_001.pdf'],['文部科学省 小学校学習指導要領解説','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/']],
+    lesson:[['京都教育大学 教科別学習指導案例','https://www.kyokyo-u.ac.jp/kyoumu/jicci/sidouan/'],['学びの場.com 指導案データベース','https://www.manabinoba.com/plans/'],['熊本大学附属小学校 教科別指導案','https://www.educ.kumamoto-u.ac.jp/elem/the_study/instructional_plan/'],['東京都教職員研修センター 学習指導案のページ','https://www.kyoiku-kensyu.metro.tokyo.lg.jp/08ojt/helpdesk/plans/'],['NITS 授業・単元づくり 教材研究の方法','https://www.nits.go.jp/materials/basic/files/012_001.pdf'],['文部科学省 小学校学習指導要領解説','https://www.mext.go.jp/a_menu/shotou/new-cs/youryou/syokaisetsu/']],
     board:[['東書Eネット 板書関連資料集','https://ten.tokyo-shoseki.co.jp/shinninh/bansho/documents/'],['教育出版「プロの板書」','https://www.kyoiku-shuppan.co.jp/book/book/cate5/cate505/sho-1917.html'],['東洋館出版社 板書シリーズ','https://www.toyokan.co.jp/products/3993'],['明治図書「板書力は授業力」','https://www.meijitosho.co.jp/sp/eduzine/opinion/?id=20130390'],['みんなの教育技術「単元別 板書の技術」','https://kyoiku.sho.jp/special/137931/']],
     test:[['すらぷり 公開教材','https://surapuri.jp/'],['ちびむすドリル 公開教材','https://happylilac.net/'],['ぷりんと365 公開教材','https://www.print365.net/']]
   };
